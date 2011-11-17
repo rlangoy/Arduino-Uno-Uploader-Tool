@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+
+  <title>rlangoy/Arduino-Uno-Uploader-Tool @ GitHub</title>
+
+  <style type="text/css">
+    body {
+      margin-top: 1.0em;
+      background-color: #691d04;
+      font-family: Helvetica, Arial, FreeSans, san-serif;
+      color: #ffffff;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+    h1 { font-size: 3.8em; color: #96e2fb; margin-bottom: 3px; }
+    h1 .small { font-size: 0.4em; }
+    h1 a { text-decoration: none }
+    h2 { font-size: 1.5em; color: #96e2fb; }
+    h3 { text-align: center; color: #96e2fb; }
+    a { color: #96e2fb; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+    pre { background: #000; color: #fff; padding: 15px;}
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+  </style>
+</head>
+
+<body>
+  <a href="https://github.com/rlangoy/Arduino-Uno-Uploader-Tool"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="container">
+
+    <div class="download">
+      <a href="https://github.com/rlangoy/Arduino-Uno-Uploader-Tool/zipball/master">
+        <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
+      <a href="https://github.com/rlangoy/Arduino-Uno-Uploader-Tool/tarball/master">
+        <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
+    </div>
+
+    <h1><a href="https://github.com/rlangoy/Arduino-Uno-Uploader-Tool">Arduino Uno Uploader Tool</a>
+      <span class="small">by <a href="https://github.com/rlangoy">rlangoy</a></span></h1>
+
+    <div class="description">
+      Tool for uploading .hex files to an Arduino Uno board and in the future soport for serial communication the program acts as a GUI for avrdud
+    </div>
+
+    
+      <p>FEATURES/PROBLEMS:
+
+    Easy to use gui.
+
+    Automaticaly detects and select if a new USB/Serial port is connected to the PC.
+
+    Allsettings is restored when the program is restarted.
+
+    More functions is coming for displaying RS232 data from the Arduino board.
+
+SYNOPSIS:
+
+    When the program starts it creates a configuration file (config.ini) and the file
+    is updated width changes when the program exites
+         
+     Example content of a config.ini file:
+       [Config]
+       comPort=COM35
+       fileName=C:\work\test.hex
+       arduinoUnoParams=-F -v -pm328p -cstk500v1 
+       bUseUsbNotifycations=True
+
+       When the user pushed the upload button avrdude is started width the folowing parameters:
+           -F -v -pm328p -cstk500v1 -P\\.\COM35 -D -Uflash:w:"c:\work\test.hex":i
+
+       The config.ini file could be modifyed so that the program could be used to program other Arduino boards
+
+
+      config.ini parameters:
+          
+	[Config]  comPort              - serial port that is used to program the Arduino borad
+	[Config]  fileName             - the name and location of the intel .hex file to upload 
+	[Config]  arduinoUnoParams     - additional params used by avrdude to program the Arduino borad
+	[Config]  bUseUsbNotifycations - Detect / not detect if a new USB to RS232 device was insertet to the system
+				         (a Arduino Board)
+</p>
+    
+
+    
+
+    
+      <h2>Install</h2>
+      <p>Run setup.exe :)</p>
+    
+
+    
+      <h2>License</h2>
+      <p>LICENSE:
+
+(The MIT License)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the ‘Software’), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED ‘AS IS’, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</p>
+    
+
+    
+      <h2>Authors</h2>
+      <p>Rune Langoy (rune.langoy@gmail.com)<br/>      </p>
+    
+
+    
+      <h2>Contact</h2>
+      <p>Rune Langoy (rune.langoy@gmail.com)<br/>      </p>
+    
+
+    <h2>Download</h2>
+    <p>
+      You can download this project in either
+      <a href="https://github.com/rlangoy/Arduino-Uno-Uploader-Tool/zipball/master">zip</a> or
+      <a href="https://github.com/rlangoy/Arduino-Uno-Uploader-Tool/tarball/master">tar formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/rlangoy/Arduino-Uno-Uploader-Tool</pre>
+    </p>
+
+    <div class="footer">
+      get the source code on GitHub : <a href="https://github.com/rlangoy/Arduino-Uno-Uploader-Tool">rlangoy/Arduino-Uno-Uploader-Tool</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
