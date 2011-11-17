@@ -49,42 +49,42 @@
       Tool for uploading .hex files to an Arduino Uno board and in the future soport for serial communication the program acts as a GUI for avrdud
     </div>
 
-    
-      <p>FEATURES/PROBLEMS:
+    <br/>
+      <p>FEATURES/PROBLEMS:<br/>
+<br/>
+    Easy to use gui.<br/>
+<br/>
+    Automaticaly detects and select if a new USB/Serial port is connected to the PC.<br/>
+<br/>
+    Allsettings is restored when the program is restarted.<br/>
+<br/>
+    More functions is coming for displaying RS232 data from the Arduino board.<br/>
+<br/>
+SYNOPSIS:<br/>
+<br/>
+    When the program starts it creates a configuration file (config.ini) and the file<br/>
+    is updated width changes when the program exites<br/>
+<br/>         
+     Example content of a config.ini file:<br/>
+       [Config]<br/>
+       comPort=COM35<br/>
+       fileName=C:\work\test.hex<br/>
+       arduinoUnoParams=-F -v -pm328p -cstk500v1<br/> 
+       bUseUsbNotifycations=True<br/>
+<br/>
+       When the user pushed the upload button avrdude is started width the folowing parameters:<br/>
+           -F -v -pm328p -cstk500v1 -P\\.\COM35 -D -Uflash:w:"c:\work\test.hex":i<br/>
+<br/>
+       The config.ini file could be modifyed so that the program could be used to program other Arduino boards<br/>
 
-    Easy to use gui.
 
-    Automaticaly detects and select if a new USB/Serial port is connected to the PC.
-
-    Allsettings is restored when the program is restarted.
-
-    More functions is coming for displaying RS232 data from the Arduino board.
-
-SYNOPSIS:
-
-    When the program starts it creates a configuration file (config.ini) and the file
-    is updated width changes when the program exites
-         
-     Example content of a config.ini file:
-       [Config]
-       comPort=COM35
-       fileName=C:\work\test.hex
-       arduinoUnoParams=-F -v -pm328p -cstk500v1 
-       bUseUsbNotifycations=True
-
-       When the user pushed the upload button avrdude is started width the folowing parameters:
-           -F -v -pm328p -cstk500v1 -P\\.\COM35 -D -Uflash:w:"c:\work\test.hex":i
-
-       The config.ini file could be modifyed so that the program could be used to program other Arduino boards
-
-
-      config.ini parameters:
-          
-	[Config]  comPort              - serial port that is used to program the Arduino borad
-	[Config]  fileName             - the name and location of the intel .hex file to upload 
-	[Config]  arduinoUnoParams     - additional params used by avrdude to program the Arduino borad
+      config.ini parameters:<br/>
+          <br/>
+	[Config]  comPort              - serial port that is used to program the Arduino borad <br/>
+	[Config]  fileName             - the name and location of the intel .hex file to upload <br/>
+	[Config]  arduinoUnoParams     - additional params used by avrdude to program the Arduino borad<br/>
 	[Config]  bUseUsbNotifycations - Detect / not detect if a new USB to RS232 device was insertet to the system
-				         (a Arduino Board)
+				         (a Arduino Board)<br/>
 </p>
     
 
@@ -111,12 +111,14 @@ THE SOFTWARE IS PROVIDED ‘AS IS’, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
     
       <h2>Authors</h2>
-      <p>Rune Langoy (rune.langoy@gmail.com)<br/>      </p>
+      <p>Rune Langoy 
+<br/>      </p>
     
 
     
       <h2>Contact</h2>
-      <p>Rune Langoy (rune.langoy@gmail.com)<br/>      </p>
+      <p>Rune Langoy 
+<br/>      </p>
     
 
     <h2>Download</h2>
