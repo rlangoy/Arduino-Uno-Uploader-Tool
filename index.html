@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset='utf-8'>
@@ -63,11 +63,11 @@ SYNOPSIS:<br/>
        [Config]<br/>
        comPort=COM35<br/>
        fileName=C:\work\test.hex<br/>
-       arduinoUnoParams=-F -v -pm328p -cstk500v1<br/>
+       arduinoUnoParamsVer5=-F -v -pm328p -c arduino -b 115200<br/>
        bUseUsbNotifycations=True<br/>
 <br/>
        When the user pushed the upload button avrdude is started width the folowing parameters:<br/>
-           -F -v -pm328p -cstk500v1 -P\\.\COM35 -D -Uflash:w:"c:\work\test.hex":i<br/>
+           -F -v -pm328p -c arduino -b 115200 -P\\.\COM35 -D -Uflash:w:"c:\work\test.hex":i<br/>
 <br/>
        The config.ini file could be modifyed so that the program could be used to program other Arduino boards<br/>
 
@@ -76,7 +76,7 @@ SYNOPSIS:<br/>
           <br/>
 	[Config]  comPort              - serial port that is used to program the Arduino borad <br/>
 	[Config]  fileName             - the name and location of the intel .hex file to upload <br/>
-	[Config]  arduinoUnoParams     - additional params used by avrdude to program the Arduino borad<br/>
+	[Config]  arduinoUnoParamsVer5 - additional params used by avrdude to program the Arduino borad<br/>
 	[Config]  bUseUsbNotifycations - Detect / not detect if a new USB to RS232 device was insertet to the system
 				         (a Arduino Board)<br/>
 </p>
@@ -86,6 +86,7 @@ SYNOPSIS:<br/>
 
 
       <h2>Install</h2>
+      <p><a href="https://github.com/downloads/rlangoy/Arduino-Uno-Uploader-Tool/AUTSetupVer1_01.zip"> Download </a></p>
       <p>Unzip and Run setup.exe :)</p>
 
 
@@ -110,7 +111,7 @@ THE SOFTWARE IS PROVIDED ‘AS IS’, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
     <h2>Download</h2>
     <p>
-      Download binary width <a href="https://github.com/downloads/rlangoy/Arduino-Uno-Uploader-Tool/AUTSetup.zip"> installer</a>
+      Download binary width <a href="https://github.com/downloads/rlangoy/Arduino-Uno-Uploader-Tool/AUTSetupVer1_01.zip"> installer</a>
       or download the source code for this project in either
       <a href="https://github.com/rlangoy/Arduino-Uno-Uploader-Tool/zipball/master">zip</a> or
       <a href="https://github.com/rlangoy/Arduino-Uno-Uploader-Tool/tarball/master">tar formats.
