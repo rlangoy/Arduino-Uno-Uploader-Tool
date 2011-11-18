@@ -21,7 +21,7 @@ SYNOPSIS:
     When the program starts it creates a configuration file (config.ini) and the file
     is updated width changes when the program exites
          
-     Example content of a config.ini file:
+     Example content of a config.ini file (stored in the User's Application Data Folder)
        [Config]
        comPort=COM35
        fileName=C:\work\test.hex
