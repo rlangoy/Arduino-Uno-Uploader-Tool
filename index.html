@@ -8,20 +8,20 @@
   <style type="text/css">
     body {
       margin-top: 1.0em;
-      background-color: #691d04;
+      background-color: ##000066;
       font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #ffffff;
+      color: #000000;
     }
     #container {
       margin: 0 auto;
       width: 700px;
     }
-    h1 { font-size: 3.8em; color: #96e2fb; margin-bottom: 3px; }
+    h1 { font-size: 2.8em; color: blue; margin-bottom: 3px; }
     h1 .small { font-size: 0.4em; }
     h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #96e2fb; }
-    h3 { text-align: center; color: #96e2fb; }
-    a { color: #96e2fb; }
+    h2 { font-size: 1.5em; color: ##000066; }
+    h3 { text-align: center; color: ##000066; }
+    a { color: #000066; }
     .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
     .download { float: right; }
     pre { background: #000; color: #fff; padding: 15px;}
@@ -35,13 +35,14 @@
 
   <div id="container">
 
- 
+
     <h1><a href="https://github.com/rlangoy/Arduino-Uno-Uploader-Tool">Arduino Uno Uploader Tool</a></h1>
- 
+
     <div class="description">
       Tool for uploading .hex files to an Arduino Uno board and in the future soport for serial communication the program acts as a GUI for avrdud
     </div>
 
+    <IMG SRC="img/MainForm.jpg">
     <br/>
       <p>FEATURES/PROBLEMS:<br/>
 <br/>
@@ -57,12 +58,12 @@ SYNOPSIS:<br/>
 <br/>
     When the program starts it creates a configuration file (config.ini) and the file<br/>
     is updated width changes when the program exites<br/>
-<br/>         
+<br/>
      Example content of a config.ini file:<br/>
        [Config]<br/>
        comPort=COM35<br/>
        fileName=C:\work\test.hex<br/>
-       arduinoUnoParams=-F -v -pm328p -cstk500v1<br/> 
+       arduinoUnoParams=-F -v -pm328p -cstk500v1<br/>
        bUseUsbNotifycations=True<br/>
 <br/>
        When the user pushed the upload button avrdude is started width the folowing parameters:<br/>
@@ -79,16 +80,15 @@ SYNOPSIS:<br/>
 	[Config]  bUseUsbNotifycations - Detect / not detect if a new USB to RS232 device was insertet to the system
 				         (a Arduino Board)<br/>
 </p>
-    
 
-    
 
-    
+
+
+
       <h2>Install</h2>
-      <p>Run setup.exe :)</p>
-    
+      <p>Unzip and Run setup.exe :)</p>
 
-    
+
       <h2>License</h2>
       <p>LICENSE:
 
@@ -100,13 +100,13 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED ‘AS IS’, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </p>
-    
 
-    
+
+
       <h2>Authors</h2>
-      <p>Rune Langøy 
+      <p>Rune Langøy
 <br/>      </p>
-    
+
 
     <h2>Download</h2>
     <p>
