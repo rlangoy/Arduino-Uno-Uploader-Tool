@@ -40,7 +40,9 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private bool bUseUsbNotifycations = true;
         private string comPort=   "COM1";
         private string fileName = "";
-        private string arduinoUnoParams = "-F -v -pm328p -cstk500v1 ";
+       
+        //params for avrdude: Version 5.11-Patch#7610
+        private string arduinoUnoParams = "-F -v -pm328p -c arduino -b 115200";
 
         public void USBRemoved()
         {
@@ -90,6 +92,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         {
             string defParam = arduinoUnoParams + " -P\\\\.\\" + comPort + " -D -Uflash:w:\"" + fileName + "\":i";
             textParams.Text = defParam;
+            textBoxHexFile.Text = fileName;
         }
 
         // Store configuration
@@ -99,7 +102,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             inifile.Write("Config", "bUseUsbNotifycations", bUseUsbNotifycations.ToString());
             inifile.Write("Config", "comPort", comPort);
             inifile.Write("Config", "fileName", fileName);
-            inifile.Write("Config", "arduinoUnoParams", arduinoUnoParams);
+            inifile.Write("Config", "arduinoUnoParamsVer5", arduinoUnoParams);                  
         }
 
         // Read configuration
@@ -115,14 +118,13 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             if (readString.Length > 0)
                 fileName = readString;
 
-            readString = inifile.Read("Config", "arduinoUnoParams");
+            readString = inifile.Read("Config", "arduinoUnoParamsVer5");
             if (readString.Length > 0)
                 arduinoUnoParams = readString;
 
             readString = inifile.Read("Config", "bUseUsbNotifycations");
             if (readString.Length > 0)
-                bUseUsbNotifycations = Convert.ToBoolean(readString);
-
+                bUseUsbNotifycations = Convert.ToBoolean(readString);        
         }
 
 
@@ -219,7 +221,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
             if (fileOpenDlg.ShowDialog() == DialogResult.OK)
             {
-                fileName = fileOpenDlg.FileName;
+                fileName = fileOpenDlg.FileName;                
                 updateParams();
             }
         }
