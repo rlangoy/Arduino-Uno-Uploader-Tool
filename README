@@ -25,11 +25,11 @@ SYNOPSIS:
        [Config]
        comPort=COM35
        fileName=C:\work\test.hex
-       arduinoUnoParams=-F -v -pm328p -cstk500v1 
+       arduinoUnoParamsVer5=-F -v -pm328p -c arduino -b 115200
        bUseUsbNotifycations=True
 
        When the user pushed the upload button avrdude is started width the folowing parameters:
-           -F -v -pm328p -cstk500v1 -P\\.\COM35 -D -Uflash:w:"c:\work\test.hex":i
+           -F -v -pm328p -c arduino -b 115200 -P\\.\COM35 -D -Uflash:w:"c:\work\test.hex":i
 
        The config.ini file could be modifyed so that the program could be used to program other Arduino boards
 
@@ -38,7 +38,7 @@ SYNOPSIS:
           
 	[Config]  comPort              - serial port that is used to program the Arduino borad
 	[Config]  fileName             - the name and location of the intel .hex file to upload 
-	[Config]  arduinoUnoParams     - additional params used by avrdude to program the Arduino borad
+	[Config]  arduinoUnoParamsVer5 - additional params used by avrdude to program the Arduino borad
 	[Config]  bUseUsbNotifycations - Detect / not detect if a new USB to RS232 device was insertet to the system
 				         (a Arduino Board)
 
