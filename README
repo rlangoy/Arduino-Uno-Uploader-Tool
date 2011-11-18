@@ -1,9 +1,12 @@
 
 DESCRIPTION:
     Arduino Uno Uloader Tool is a easy to use windows tool for uploading .hex file to 
-    an Arduino Uno Board (http://arduino.cc/en/Main/ArduinoBoardUno)     
+    an Arduino Uno Board (http://arduino.cc/en/Main/ArduinoBoardUno)        
 
-FEATURES/PROBLEMS:
+SITE: 
+    http://rlangoy.github.com/Arduino-Uno-Uploader-Tool/
+
+FEATURES:
 
     Easy to use gui.
 
