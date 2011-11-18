@@ -98,7 +98,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         // Store configuration
         private void WriteConfigToFile()
         {
-            ReadWriteInitFile inifile = new ReadWriteInitFile(Directory.GetCurrentDirectory() + "\\config.ini");
+            ReadWriteInitFile inifile = new ReadWriteInitFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\config.ini");
             inifile.Write("Config", "bUseUsbNotifycations", bUseUsbNotifycations.ToString());
             inifile.Write("Config", "comPort", comPort);
             inifile.Write("Config", "fileName", fileName);
@@ -108,7 +108,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         // Read configuration
         private void ReadConfigToFile()
         {
-            ReadWriteInitFile inifile = new ReadWriteInitFile(Directory.GetCurrentDirectory() + "\\config.ini");
+            ReadWriteInitFile inifile = new ReadWriteInitFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\config.ini");
 
             string readString = inifile.Read("Config", "comPort");
             if (readString.Length > 0)
