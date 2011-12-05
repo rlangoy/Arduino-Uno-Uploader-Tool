@@ -93,6 +93,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             comboBoxSerailPorts.Items.Clear();
             foreach (string name in ports)
                 comboBoxSerailPorts.Items.Add(name);
+                         
         }
 
         //Config parameters
@@ -141,6 +142,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 {
                     comPort = strPort;
                     updateParams();
+                    if (!comboBoxSerailPorts.Items.Contains(strPort))
+                        comboBoxSerailPorts.Items.Add(strPort);
                     comboBoxSerailPorts.Text = strPort;
                     chkIfComPortIsAvailable();
                     break;
@@ -169,6 +172,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             chkUSBNotify.Checked = bUseUsbNotifycations;
             cmbSerialTerm.Text = baudRate.ToString();
             cmbSerialSpeedCfg.Text = baudRate.ToString();
+            comboBoxSerailPorts.Text = comPort.ToString();        
         }
 
         // Store configuration
@@ -295,7 +299,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+               // MessageBox.Show(ex.ToString());
+                toolStripStatusLabel1.Text = ex.ToString().Trim('\n');
             }
 
         
@@ -344,10 +349,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             ReadConfigToFile();
             
             textBoxHexFile.Text = fileName;
-            comboBoxSerailPorts.Text = comPort;
+            
 
-            //startSerialPort();
-            //serialPort1 = new SerialPort(comPort, 9600, Parity.None, 8, StopBits.One);
 
             updateParams();
 
@@ -360,13 +363,22 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
             ShowLinkedPanelNo(1);
             textBoxArduinoUnoParamsVer5.Text = this.arduinoUnoParams;
+            toolStripStatusLabel1.Text = "Ready";
+
+            comboBoxSerailPorts.Items.Clear();
+            comboBoxSerailPorts.Items.Add(comPort);
+
+            if (!comboBoxSerailPorts.Items.Contains(comPort))
+                comboBoxSerailPorts.Items.Add(comPort);
+
+            comboBoxSerailPorts.Text = comPort;        
         }
 
         private void comboBoxSerailPorts_SelectedValueChanged(object sender, EventArgs e)
         {
             comPort = comboBoxSerailPorts.Text;
             updateParams();
-            chkIfComPortIsAvailable();
+            chkIfComPortIsAvailable();             
         }
 
         private void textBoxHexFile_TextChanged(object sender, EventArgs e)
@@ -387,7 +399,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
             if (chkIfComPortIsAvailable() == false)
             {
-                MessageBox.Show("COM-port is not Available\nPlease select another COM-port", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("COM-port is not Available\nPlease select another COM-port", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);                
                 return;
             }
 
@@ -436,7 +448,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    //MessageBox.Show(ex.ToString());
+                    toolStripStatusLabel1.Text = ex.ToString().Trim('\n'); ;
                 }
                 
             }
@@ -485,6 +498,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
         private void ShowLinkedPanelNo(int panelNo)
         {
+            toolStripStatusLabel1.Text = "";
             panel3LinkXp1.Visible = false;
             panel3LinkXp2.Visible = false;
             panel3LinkXp3.Visible = false;
@@ -563,7 +577,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         }
 
         private void xPanderPanel4_Click(object sender, EventArgs e)
-        {
+        {            
             ShowLinkedPanelNo(4);
         }
 
@@ -581,7 +595,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             }
             catch (Exception ex) 
             {  //ToDO show error in status bar ;
-                MessageBox.Show(ex.ToString());
+                toolStripStatusLabel1.Text = ex.ToString().Trim('\n'); ;
             };
         }
 
@@ -594,7 +608,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         {
             if (chkIfComPortIsAvailable() == false)
             {
-                MessageBox.Show("COM-port is not Available\nPlease select another COM-port", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("COM-port is not Available\nPlease select another COM-port", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                toolStripStatusLabel1.Text = "COM-port is not Available - Please select another COM-port";
                 return;
             }
 
@@ -607,7 +622,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             else
             {
                 closeSerial();
-
+                toolStripStatusLabel1.Text = "";
                 this.txtSerialTerminal.Text = ""; //clear recieved RS232 data
             
             }
