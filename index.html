@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset='utf-8'>
@@ -36,15 +36,16 @@
   <div id="container">
 
 
-    <h1><a href="https://github.com/rlangoy/Arduino-Uno-Uploader-Tool">Arduino Uno Uploader Tool</a></h1>
+    <h1> <IMG SRC="img/Icon.jpg">
+     <a href="https://github.com/rlangoy/Arduino-Uno-Uploader-Tool">Arduino Uno Uploader Tool</a></h1>
 
     <div class="description">
-      Tool for uploading .hex files to an Arduino Uno board and in the future soport for serial communication the program acts as a GUI for avrdud
+      Tool for uploading .hex files and serial communication for the  Arduino Uno board
     </div>
 
-    <IMG SRC="img/MainForm.jpg">
+    <IMG SRC="img/MainVer1_1.jpg">
     <br/>
-      <p>FEATURES/PROBLEMS:<br/>
+    <p>FEATURES:<br/><p/>
 <br/>
     Easy to use gui.<br/>
 <br/>
@@ -52,35 +53,23 @@
 <br/>
     Allsettings is restored when the program is restarted.<br/>
 <br/>
-    More functions is coming for displaying RS232 data from the Arduino board.<br/>
+    RS232 Serial Terminal for communicating width the Arduino board.<br/>
 <br/>
+	<p>RS232 Serial Terminal:<p/>
+	<IMG SRC="img/SerialTermVer1_1.jpg">
+<br/>
+	<p>Configuration panel:<p/>
+	<IMG SRC="img/ConfigVer1_1.jpg">
+<br/>
+
+
 SYNOPSIS:<br/>
 <br/>
-    When the program starts it creates a configuration file (config.ini) and the file<br/>
-    is updated width changes when the program exites<br/>
-<br/>
-     Example content of a config.ini file:<br/>
-       [Config]<br/>
-       comPort=COM35<br/>
-       fileName=C:\work\test.hex<br/>
-       arduinoUnoParamsVer5=-F -v -pm328p -c arduino -b 115200<br/>
-       bUseUsbNotifycations=True<br/>
-<br/>
-       When the user pushed the upload button avrdude is started width the folowing parameters:<br/>
-           -F -v -pm328p -c arduino -b 115200 -P\\.\COM35 -D -Uflash:w:"c:\work\test.hex":i<br/>
-<br/>
-       The config.ini file makes it posible to use this program to program other boards<br/>
-       (config.ini is stored in the User's Application Data Folder)<br/>
-
-      <br/>
-      config.ini parameters:<br/>
-          <br/>
-	[Config]  comPort              - serial port that is used to program the Arduino borad <br/>
-	[Config]  fileName             - the name and location of the intel .hex file to upload <br/>
-	[Config]  arduinoUnoParamsVer5 - additional params used by avrdude to program the Arduino borad<br/>
-	[Config]  bUseUsbNotifycations - Detect / not detect if a new USB to RS232 device was insertet to the system
-				         (a Arduino Board)<br/>
-</p>
+<p>
+    The program uses <a href="http://savannah.nongnu.org/projects/avrdude">AVRDUDE (AVR Downloader/UploaDEr)</a>
+    to program the atmega328p<br/>
+    The AVRDUDE parameters could be changed so that this program could be used to program other microcontrollers.
+<p/>
 
 
 
@@ -112,10 +101,8 @@ THE SOFTWARE IS PROVIDED ‘AS IS’, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
     <h2>Download</h2>
     <p>
-      Download binary width <a href="https://github.com/downloads/rlangoy/Arduino-Uno-Uploader-Tool/AUTSetupVer1_01.zip"> installer</a>
-      or download the source code for this project in either
-      <a href="https://github.com/rlangoy/Arduino-Uno-Uploader-Tool/zipball/master">zip</a> or
-      <a href="https://github.com/rlangoy/Arduino-Uno-Uploader-Tool/tarball/master">tar formats.
+      <br/> Download latest version width binary installer <a href="https://github.com/downloads/rlangoy/Arduino-Uno-Uploader-Tool/AUTSetupVer1_10.zip">  Ver1.10</a>
+      <br/> Older Versions: <a href="https://github.com/downloads/rlangoy/Arduino-Uno-Uploader-Tool/AUTSetupVer1_01.zip">  Ver1.01</a>
     </p>
     <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
       by running:
