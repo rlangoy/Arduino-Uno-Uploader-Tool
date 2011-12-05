@@ -62,6 +62,9 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ArduinoProgrammer.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -77,6 +80,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisplayTool.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FromArduinoUpload.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,15 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThirdParty\BSE.Windows\BSE.Windows.Forms\BSE.Windows.Forms.csproj">
+      <Project>{9CA367B8-0B98-49D1-84FB-735E612E3BA9}</Project>
+      <Name>BSE.Windows.Forms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ArduinoProgrammer.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

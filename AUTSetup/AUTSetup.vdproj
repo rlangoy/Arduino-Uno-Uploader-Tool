@@ -15,13 +15,49 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_0A555245672444B6BEA1D716C3BD5495"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0CED2ED188594F60924E16C21C8AE337"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1CFE045D3279497588338D2F6C0C9BFC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3AB24BF6876647F4AF48ED299EEE5F2D"
+        "MsmKey" = "8:_1E08584731E541CC9198ACD48D491617"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_495C36B4199D4811BF209F7D836811C1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B423D105E224026BA9E4D43343B0077"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A4495ABD9BFF4711B4B2172D272136B6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BD5229039265405DAAA45479FE0AFDF0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -39,8 +75,32 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C8E2C776E6984451B864123937856ED9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E1A6E2E7CEA97FC1A8134258D6BAD7E3"
+        "OwnerKey" = "8:_C1DD264334044075AF6B186A20E12D0D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F198C40A775C4B4183A3672C201C7119"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_C1DD264334044075AF6B186A20E12D0D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E1A6E2E7CEA97FC1A8134258D6BAD7E3"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -148,6 +208,46 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0A555245672444B6BEA1D716C3BD5495"
+            {
+            "SourcePath" = "8:..\\AvrDudeFiles\\ArduinoUNO.inf"
+            "TargetName" = "8:ArduinoUNO.inf"
+            "Tag" = "8:"
+            "Folder" = "8:_BD9905C83B5C4526811FB661907B2519"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0CED2ED188594F60924E16C21C8AE337"
+            {
+            "SourcePath" = "8:..\\AvrDudeFiles\\config.ini"
+            "TargetName" = "8:config.ini"
+            "Tag" = "8:"
+            "Folder" = "8:_619894BEDEF347799C06CD3B4455D522"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1CFE045D3279497588338D2F6C0C9BFC"
             {
             "SourcePath" = "8:..\\AvrDudeFiles\\avrdude.conf"
@@ -168,12 +268,92 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3AB24BF6876647F4AF48ED299EEE5F2D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1E08584731E541CC9198ACD48D491617"
             {
-            "SourcePath" = "8:C:\\Program Files\\VUC\\Arduino Uploader Tool\\config.ini"
-            "TargetName" = "8:config.ini"
+            "SourcePath" = "8:..\\AvrDudeFiles\\ArduinoUNO.inf"
+            "TargetName" = "8:ArduinoUNO.inf"
             "Tag" = "8:"
-            "Folder" = "8:_619894BEDEF347799C06CD3B4455D522"
+            "Folder" = "8:_2D8D162532EE44FEA09C838F4E74EE27"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_495C36B4199D4811BF209F7D836811C1"
+            {
+            "SourcePath" = "8:..\\AvrDudeFiles\\InstallDriverXP.bat"
+            "TargetName" = "8:InstallDriverXP.bat"
+            "Tag" = "8:"
+            "Folder" = "8:_BD9905C83B5C4526811FB661907B2519"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4B423D105E224026BA9E4D43343B0077"
+            {
+            "SourcePath" = "8:..\\Images\\uninstall.ico"
+            "TargetName" = "8:uninstall.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_BD9905C83B5C4526811FB661907B2519"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A4495ABD9BFF4711B4B2172D272136B6"
+            {
+            "SourcePath" = "8:..\\AvrDudeFiles\\driver_installation.ico"
+            "TargetName" = "8:driver_installation.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_BD9905C83B5C4526811FB661907B2519"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BD5229039265405DAAA45479FE0AFDF0"
+            {
+            "SourcePath" = "8:..\\Images\\ArduinoProgrammer.ico"
+            "TargetName" = "8:ArduinoProgrammer.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_BD9905C83B5C4526811FB661907B2519"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -208,6 +388,77 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C8E2C776E6984451B864123937856ED9"
+            {
+            "SourcePath" = "8:..\\AvrDudeFiles\\UnInstall.bat"
+            "TargetName" = "8:UnInstall.bat"
+            "Tag" = "8:"
+            "Folder" = "8:_BD9905C83B5C4526811FB661907B2519"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E1A6E2E7CEA97FC1A8134258D6BAD7E3"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:BSE.Windows.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_E1A6E2E7CEA97FC1A8134258D6BAD7E3"
+                    {
+                    "Name" = "8:BSE.Windows.Forms.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:BSE.Windows.Forms.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BD9905C83B5C4526811FB661907B2519"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F198C40A775C4B4183A3672C201C7119"
+            {
+            "SourcePath" = "8:..\\AvrDudeFiles\\InstallDriverWin7.bat"
+            "TargetName" = "8:InstallDriverWin7.bat"
+            "Tag" = "8:"
+            "Folder" = "8:_BD9905C83B5C4526811FB661907B2519"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -217,10 +468,33 @@
             "{1525181F-901A-416C-8A58-119130FE478E}:_28330998EE424599899BD7BEDF2AF73B"
             {
             "Name" = "8:#1919"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:ProgramMenuFolder"
+                "Folders"
+                {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_EE72FC99D06A4AAFBC56011E84888D36"
+                    {
+                    "Name" = "8:Arduino Programmer"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_669D1F5FE6C44179911EBAD6EC4471D5"
+                        "Folders"
+                        {
+                        }
+                    }
+                }
+            }
+            "{994432C3-9487-495D-8656-3E829A8DBDDE}:_2D8D162532EE44FEA09C838F4E74EE27"
+            {
+            "DefaultLocation" = "8:C:\\ArduinoUno\\"
+            "Name" = "8:Driver"
+            "AlwaysCreate" = "11:TRUE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:NEWPROPERTY1"
                 "Folders"
                 {
                 }
@@ -276,11 +550,11 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Arduino Uploader Tool "
         "ProductCode" = "8:{E8A7A14B-918A-484A-903E-028844CDFD1A}"
-        "PackageCode" = "8:{8E6E4ACC-2D6D-4E92-A753-F6882D834743}"
+        "PackageCode" = "8:{B13360FF-690D-4B09-A1B1-CA310A27B964}"
         "UpgradeCode" = "8:{4743626B-2B13-4BBB-BD58-C3910391C22F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.1"
@@ -293,7 +567,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Tool used to upload .hex files to Arduino uno and more"
         "ARPURLINFOABOUT" = "8:http://www.hive.no"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_4B423D105E224026BA9E4D43343B0077"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -407,7 +681,21 @@
             "Target" = "8:_C1DD264334044075AF6B186A20E12D0D"
             "Folder" = "8:_50C5F46BD4704DDEA4FF85839048DCC6"
             "WorkingFolder" = "8:_BD9905C83B5C4526811FB661907B2519"
-            "Icon" = "8:"
+            "Icon" = "8:_BD5229039265405DAAA45479FE0AFDF0"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7514C3A9D3A242FCA3722B0F1512235A"
+            {
+            "Name" = "8:UnInstall"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_C8E2C776E6984451B864123937856ED9"
+            "Folder" = "8:_EE72FC99D06A4AAFBC56011E84888D36"
+            "WorkingFolder" = "8:_BD9905C83B5C4526811FB661907B2519"
+            "Icon" = "8:_4B423D105E224026BA9E4D43343B0077"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C72E5ECE58A245E39D87FAE900C3460D"
@@ -419,9 +707,9 @@
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_C1DD264334044075AF6B186A20E12D0D"
-            "Folder" = "8:_28330998EE424599899BD7BEDF2AF73B"
+            "Folder" = "8:_EE72FC99D06A4AAFBC56011E84888D36"
             "WorkingFolder" = "8:_BD9905C83B5C4526811FB661907B2519"
-            "Icon" = "8:"
+            "Icon" = "8:_BD5229039265405DAAA45479FE0AFDF0"
             "Feature" = "8:"
             }
         }
@@ -637,8 +925,8 @@
                             "Type" = "3:3"
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
-                            "Setting" = "3:1"
-                            "Value" = "8:#1202"
+                            "Setting" = "3:2"
+                            "Value" = "8:WARNING: USE This program on your own risk"
                             "DefaultValue" = "8:#1202"
                             "UsePlugInResources" = "11:TRUE"
                             }
@@ -795,8 +1083,8 @@
                             "Type" = "3:3"
                             "ContextData" = "8:"
                             "Attributes" = "3:0"
-                            "Setting" = "3:1"
-                            "Value" = "8:#1202"
+                            "Setting" = "3:2"
+                            "Value" = "8:WARNING: USE This program on your own risk"
                             "DefaultValue" = "8:#1202"
                             "UsePlugInResources" = "11:TRUE"
                             }
