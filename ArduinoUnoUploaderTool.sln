@@ -5,18 +5,48 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArduinoUnoUploaderTool", "A
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AUTSetup", "AUTSetup\AUTSetup.vdproj", "{7B8C5769-F0E6-4085-A5DB-07EA53350AB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSE.Windows.Forms", "ThirdParty\BSE.Windows\BSE.Windows.Forms\BSE.Windows.Forms.csproj", "{9CA367B8-0B98-49D1-84FB-735E612E3BA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6130FF5-4A16-4748-8778-DCF8CA009512}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{D6130FF5-4A16-4748-8778-DCF8CA009512}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{D6130FF5-4A16-4748-8778-DCF8CA009512}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{D6130FF5-4A16-4748-8778-DCF8CA009512}.Debug|x86.ActiveCfg = Debug|x86
 		{D6130FF5-4A16-4748-8778-DCF8CA009512}.Debug|x86.Build.0 = Debug|x86
+		{D6130FF5-4A16-4748-8778-DCF8CA009512}.Release|Any CPU.ActiveCfg = Release|x86
+		{D6130FF5-4A16-4748-8778-DCF8CA009512}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{D6130FF5-4A16-4748-8778-DCF8CA009512}.Release|Mixed Platforms.Build.0 = Release|x86
 		{D6130FF5-4A16-4748-8778-DCF8CA009512}.Release|x86.ActiveCfg = Release|x86
 		{D6130FF5-4A16-4748-8778-DCF8CA009512}.Release|x86.Build.0 = Release|x86
+		{7B8C5769-F0E6-4085-A5DB-07EA53350AB0}.Debug|Any CPU.ActiveCfg = Debug
+		{7B8C5769-F0E6-4085-A5DB-07EA53350AB0}.Debug|Any CPU.Build.0 = Debug
+		{7B8C5769-F0E6-4085-A5DB-07EA53350AB0}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{7B8C5769-F0E6-4085-A5DB-07EA53350AB0}.Debug|Mixed Platforms.Build.0 = Debug
 		{7B8C5769-F0E6-4085-A5DB-07EA53350AB0}.Debug|x86.ActiveCfg = Debug
+		{7B8C5769-F0E6-4085-A5DB-07EA53350AB0}.Release|Any CPU.ActiveCfg = Release
+		{7B8C5769-F0E6-4085-A5DB-07EA53350AB0}.Release|Any CPU.Build.0 = Release
+		{7B8C5769-F0E6-4085-A5DB-07EA53350AB0}.Release|Mixed Platforms.ActiveCfg = Release
+		{7B8C5769-F0E6-4085-A5DB-07EA53350AB0}.Release|Mixed Platforms.Build.0 = Release
 		{7B8C5769-F0E6-4085-A5DB-07EA53350AB0}.Release|x86.ActiveCfg = Release
+		{9CA367B8-0B98-49D1-84FB-735E612E3BA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CA367B8-0B98-49D1-84FB-735E612E3BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CA367B8-0B98-49D1-84FB-735E612E3BA9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9CA367B8-0B98-49D1-84FB-735E612E3BA9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9CA367B8-0B98-49D1-84FB-735E612E3BA9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9CA367B8-0B98-49D1-84FB-735E612E3BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CA367B8-0B98-49D1-84FB-735E612E3BA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CA367B8-0B98-49D1-84FB-735E612E3BA9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9CA367B8-0B98-49D1-84FB-735E612E3BA9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9CA367B8-0B98-49D1-84FB-735E612E3BA9}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
