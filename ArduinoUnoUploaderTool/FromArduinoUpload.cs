@@ -270,9 +270,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                     serialPort1.DataReceived -= new SerialDataReceivedEventHandler(serialPort1_DataReceived);
                     this.Invoke(new MethodInvoker(clSerial));
                     closeOnce = true;
-                }
-            
-            }
+                }            
+            }//end closeOnce
 
         }
 
@@ -349,8 +348,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             ReadConfigToFile();
             
             textBoxHexFile.Text = fileName;
-            
-
 
             updateParams();
 
