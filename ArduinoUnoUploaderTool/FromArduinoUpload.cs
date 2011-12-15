@@ -583,11 +583,12 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
         private void txtSerialTerminal_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (chkSreialEcho.Checked == false)
+                e.Handled = true;
             try
             {
                 //chk if port is open if not then check if
                 //--If serial port is available 
-
                 if (serialPort1.IsOpen)
                 {
                     serialPort1.Write(e.KeyChar.ToString());
@@ -657,5 +658,11 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                     startSerialPort();
                 
         }
+
+        private void chkSreialEcho_CheckedChanged(object sender, EventArgs e)
+        {
+            txtSerialTerminal.Focus();
+        }
+
     }
 }
