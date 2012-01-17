@@ -29,6 +29,7 @@ using System.IO;
 using System.Management;
 using BSE.Windows.Forms;
 using System.IO.Ports;
+using System.Reflection;
 
 namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 {
@@ -341,6 +342,10 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
         private void Form_Load(object sender, EventArgs e)
         {
+            //Display Version Information
+            Version version = new Version(Application.ProductVersion);
+            this.Text += " "+version.Major+"."+version.Minor+"."+ version.Build ;
+            
             //use default params if no config.ini is present
             restoreDefaultConfigParams();
             
@@ -368,7 +373,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             if (!comboBoxSerailPorts.Items.Contains(comPort))
                 comboBoxSerailPorts.Items.Add(comPort);
 
-            comboBoxSerailPorts.Text = comPort;        
+            comboBoxSerailPorts.Text = comPort;            
         }
 
         private void comboBoxSerailPorts_SelectedValueChanged(object sender, EventArgs e)
@@ -415,12 +420,19 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 MessageBox.Show("Please specify .hex flile to upload", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            string AVRDudeFileNameAndLocation = Path.GetDirectoryName(Application.ExecutablePath) + @"\avrdude.exe";
+            if (!File.Exists(AVRDudeFileNameAndLocation))
+            {
+                MessageBox.Show("AVRDUDE.EXE could not found\nPlease copy avrdude.exe to the location: \n" + AVRDudeFileNameAndLocation , this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;            
+            }
             
             Process p = null;
             try
             { 
                 p = new Process();
-                p.StartInfo.FileName = "avrdude.exe";
+                p.StartInfo.FileName = AVRDudeFileNameAndLocation;
 
                 p.StartInfo.Arguments = textParams.Text;
                 p.StartInfo.CreateNoWindow = false;
