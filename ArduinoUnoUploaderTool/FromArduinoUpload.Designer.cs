@@ -64,14 +64,13 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panel3LinkXp2 = new BSE.Windows.Forms.Panel();
             this.chkSreialEcho = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtSerialTerminal = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.textNormalView();
-            this.cmbSerialTerm = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.cmbSerial();
             this.chkWrapSerialData = new System.Windows.Forms.CheckBox();
             this.btCelarSerialTerminalWindow = new System.Windows.Forms.Button();
             this.panel3LinkXp1 = new BSE.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3LinkXp3 = new BSE.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.textBoxArduinoUnoParamsVer5 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textParams = new System.Windows.Forms.TextBox();
@@ -87,8 +86,11 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmbSerialSpeedCfg = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.cmbSerial();
             this.panel3LinkXp4 = new BSE.Windows.Forms.Panel();
+            this.cmbSerialUploadSpeed = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.cmbSerial();
+            this.cmbSerialSpeedCfg = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.cmbSerial();
+            this.txtSerialTerminal = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.textNormalView();
+            this.cmbSerialTerm = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.cmbSerial();
             this.statusStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.xPanderPanelList1.SuspendLayout();
@@ -476,41 +478,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.label12.TabIndex = 16;
             this.label12.Text = "Baud Rate";
             // 
-            // txtSerialTerminal
-            // 
-            this.txtSerialTerminal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSerialTerminal.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSerialTerminal.Location = new System.Drawing.Point(24, 31);
-            this.txtSerialTerminal.Multiline = true;
-            this.txtSerialTerminal.Name = "txtSerialTerminal";
-            this.txtSerialTerminal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSerialTerminal.Size = new System.Drawing.Size(653, 296);
-            this.txtSerialTerminal.TabIndex = 0;
-            this.txtSerialTerminal.WrapText = false;
-            this.txtSerialTerminal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSerialTerminal_KeyPress);
-            // 
-            // cmbSerialTerm
-            // 
-            this.cmbSerialTerm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbSerialTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSerialTerm.FormattingEnabled = true;
-            this.cmbSerialTerm.Items.AddRange(new object[] {
-            "1200",
-            "2400",
-            "4800",
-            "9600",
-            "19200",
-            "38400",
-            "57600",
-            "115200"});
-            this.cmbSerialTerm.Location = new System.Drawing.Point(374, 345);
-            this.cmbSerialTerm.Name = "cmbSerialTerm";
-            this.cmbSerialTerm.Size = new System.Drawing.Size(69, 21);
-            this.cmbSerialTerm.TabIndex = 15;
-            this.cmbSerialTerm.SelectedIndexChanged += new System.EventHandler(this.cmbSerialTerm_SelectedIndexChanged);
-            // 
             // chkWrapSerialData
             // 
             this.chkWrapSerialData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -634,23 +601,34 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.cmbSerialUploadSpeed);
             this.groupBox1.Controls.Add(this.textBoxArduinoUnoParamsVer5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textParams);
             this.groupBox1.Controls.Add(this.btCinfigDefault);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(13, 89);
+            this.groupBox1.Location = new System.Drawing.Point(13, 80);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(496, 255);
+            this.groupBox1.Size = new System.Drawing.Size(496, 264);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "AVRDUDE - AVR Downloader/UploaDEr parameters";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(365, 14);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 15);
+            this.label13.TabIndex = 14;
+            this.label13.Text = "Baud Rate";
             // 
             // textBoxArduinoUnoParamsVer5
             // 
             this.textBoxArduinoUnoParamsVer5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxArduinoUnoParamsVer5.Location = new System.Drawing.Point(21, 40);
+            this.textBoxArduinoUnoParamsVer5.Location = new System.Drawing.Point(22, 70);
             this.textBoxArduinoUnoParamsVer5.Name = "textBoxArduinoUnoParamsVer5";
             this.textBoxArduinoUnoParamsVer5.Size = new System.Drawing.Size(432, 20);
             this.textBoxArduinoUnoParamsVer5.TabIndex = 6;
@@ -659,7 +637,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 22);
+            this.label4.Location = new System.Drawing.Point(6, 52);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(140, 15);
             this.label4.TabIndex = 5;
@@ -669,7 +647,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             // 
             this.textParams.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.textParams.Location = new System.Drawing.Point(22, 117);
+            this.textParams.Location = new System.Drawing.Point(22, 121);
             this.textParams.Margin = new System.Windows.Forms.Padding(4);
             this.textParams.Multiline = true;
             this.textParams.Name = "textParams";
@@ -680,7 +658,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             // btCinfigDefault
             // 
             this.btCinfigDefault.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btCinfigDefault.Location = new System.Drawing.Point(280, 211);
+            this.btCinfigDefault.Location = new System.Drawing.Point(280, 220);
             this.btCinfigDefault.Name = "btCinfigDefault";
             this.btCinfigDefault.Size = new System.Drawing.Size(175, 27);
             this.btCinfigDefault.TabIndex = 7;
@@ -691,7 +669,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 98);
+            this.label2.Location = new System.Drawing.Point(8, 102);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 15);
@@ -805,25 +783,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.label5.TabIndex = 6;
             this.label5.Text = "Baud Rate";
             // 
-            // cmbSerialSpeedCfg
-            // 
-            this.cmbSerialSpeedCfg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSerialSpeedCfg.FormattingEnabled = true;
-            this.cmbSerialSpeedCfg.Items.AddRange(new object[] {
-            "1200",
-            "2400",
-            "4800",
-            "9600",
-            "19200",
-            "38400",
-            "57600",
-            "115200"});
-            this.cmbSerialSpeedCfg.Location = new System.Drawing.Point(15, 45);
-            this.cmbSerialSpeedCfg.Name = "cmbSerialSpeedCfg";
-            this.cmbSerialSpeedCfg.Size = new System.Drawing.Size(69, 21);
-            this.cmbSerialSpeedCfg.TabIndex = 5;
-            this.cmbSerialSpeedCfg.SelectedIndexChanged += new System.EventHandler(this.cmbSerialSpeedCfg_SelectedIndexChanged);
-            // 
             // panel3LinkXp4
             // 
             this.panel3LinkXp4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -860,6 +819,80 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panel3LinkXp4.ToolTipTextExpandIconPanelCollapsed = null;
             this.panel3LinkXp4.ToolTipTextExpandIconPanelExpanded = null;
             // 
+            // cmbSerialUploadSpeed
+            // 
+            this.cmbSerialUploadSpeed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSerialUploadSpeed.FormattingEnabled = true;
+            this.cmbSerialUploadSpeed.Items.AddRange(new object[] {
+            "1200",
+            "2400",
+            "4800",
+            "9600",
+            "19200",
+            "38400",
+            "57600",
+            "115200",
+            ""});
+            this.cmbSerialUploadSpeed.Location = new System.Drawing.Point(383, 32);
+            this.cmbSerialUploadSpeed.Name = "cmbSerialUploadSpeed";
+            this.cmbSerialUploadSpeed.Size = new System.Drawing.Size(69, 21);
+            this.cmbSerialUploadSpeed.TabIndex = 13;
+            this.cmbSerialUploadSpeed.SelectedIndexChanged += new System.EventHandler(this.cmbSerialUploadSpeed_SelectedIndexChanged);
+            // 
+            // cmbSerialSpeedCfg
+            // 
+            this.cmbSerialSpeedCfg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSerialSpeedCfg.FormattingEnabled = true;
+            this.cmbSerialSpeedCfg.Items.AddRange(new object[] {
+            "1200",
+            "2400",
+            "4800",
+            "9600",
+            "19200",
+            "38400",
+            "57600",
+            "115200"});
+            this.cmbSerialSpeedCfg.Location = new System.Drawing.Point(15, 45);
+            this.cmbSerialSpeedCfg.Name = "cmbSerialSpeedCfg";
+            this.cmbSerialSpeedCfg.Size = new System.Drawing.Size(69, 21);
+            this.cmbSerialSpeedCfg.TabIndex = 5;
+            this.cmbSerialSpeedCfg.SelectedIndexChanged += new System.EventHandler(this.cmbSerialSpeedCfg_SelectedIndexChanged);
+            // 
+            // txtSerialTerminal
+            // 
+            this.txtSerialTerminal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSerialTerminal.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSerialTerminal.Location = new System.Drawing.Point(24, 31);
+            this.txtSerialTerminal.Multiline = true;
+            this.txtSerialTerminal.Name = "txtSerialTerminal";
+            this.txtSerialTerminal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtSerialTerminal.Size = new System.Drawing.Size(653, 296);
+            this.txtSerialTerminal.TabIndex = 0;
+            this.txtSerialTerminal.WrapText = false;
+            this.txtSerialTerminal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSerialTerminal_KeyPress);
+            // 
+            // cmbSerialTerm
+            // 
+            this.cmbSerialTerm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbSerialTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSerialTerm.FormattingEnabled = true;
+            this.cmbSerialTerm.Items.AddRange(new object[] {
+            "1200",
+            "2400",
+            "4800",
+            "9600",
+            "19200",
+            "38400",
+            "57600",
+            "115200"});
+            this.cmbSerialTerm.Location = new System.Drawing.Point(374, 345);
+            this.cmbSerialTerm.Name = "cmbSerialTerm";
+            this.cmbSerialTerm.Size = new System.Drawing.Size(69, 21);
+            this.cmbSerialTerm.TabIndex = 15;
+            this.cmbSerialTerm.SelectedIndexChanged += new System.EventHandler(this.cmbSerialTerm_SelectedIndexChanged);
+            // 
             // FormArduinoUpload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -868,10 +901,10 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.xPanderPanelList1);
-            this.Controls.Add(this.panel3LinkXp2);
-            this.Controls.Add(this.panel3LinkXp1);
             this.Controls.Add(this.panel3LinkXp3);
             this.Controls.Add(this.panel3LinkXp4);
+            this.Controls.Add(this.panel3LinkXp2);
+            this.Controls.Add(this.panel3LinkXp1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -943,6 +976,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.CheckBox chkSreialEcho;
+        private System.Windows.Forms.Label label13;
+        private cmbSerial cmbSerialUploadSpeed;
     }
 }
 

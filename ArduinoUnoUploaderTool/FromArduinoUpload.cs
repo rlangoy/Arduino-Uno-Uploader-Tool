@@ -551,6 +551,31 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private void textBoxArduinoUnoParamsVer5_TextChanged(object sender, EventArgs e)
         {
             this.arduinoUnoParams = textBoxArduinoUnoParamsVer5.Text;
+
+            string[] args = this.textBoxArduinoUnoParamsVer5.Text.Split('-');            
+
+            foreach (string param in args)
+            {
+                if (param.Length>0)
+                {
+                    if (param[0] == 'b')
+                    {
+                        cmbSerialUploadSpeed.Text = param.Substring(1).Trim();
+                        if (cmbSerialUploadSpeed.Text != param.Substring(1).Trim())
+                        {
+                            //ComboBox.ObjectCollection mySpeeds = cmbSerialUploadSpeed.Items;
+                            //cmbSerialUploadSpeed.Items.Clear();                            
+                            //cmbSerialUploadSpeed.Items = mySpeeds;
+
+                            cmbSerialUploadSpeed.Text="";
+
+                        }
+
+                    }
+                }
+            }
+            
+
             updateParams(); //Show changes
         }
 
@@ -672,6 +697,39 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         {
             txtSerialTerminal.Focus();
         }
+
+
+        //Update the AvrDude argument string
+        private void UpdateAvrDudeParameterString()
+        {
+            //Return if not a valid baud rate (set manualy in textbox)
+            if (cmbSerialUploadSpeed.Text.Length==0)
+                return;
+
+            string[] args = this.textBoxArduinoUnoParamsVer5.Text.Split('-');
+            string newArgs = "";
+
+            foreach (string param in args)
+            {
+                if (param.Length > 0)
+                {
+                    if (param[0]=='b')
+                        newArgs += "-b " + cmbSerialUploadSpeed.Text;
+                    else
+                        newArgs += "-" + param;
+                }
+            }
+
+            this.textBoxArduinoUnoParamsVer5.Text = newArgs;
+        }
+
+        //Baudrate changed by using the coombobox 
+        private void cmbSerialUploadSpeed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Make av new AVRDude parameter string 
+            UpdateAvrDudeParameterString();
+        }
+
 
     }
 }
