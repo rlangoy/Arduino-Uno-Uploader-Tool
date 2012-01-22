@@ -383,11 +383,6 @@
             "AssemblyAsmDisplayName" = "8:BSE.Windows.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_E18B82F7F6734990E4B5EE7DFDCBB2C7"
-                    {
-                    "Name" = "8:BSE.Windows.Forms.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:BSE.Windows.Forms.dll"
             "TargetName" = "8:"
@@ -505,7 +500,7 @@
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.1.7"
+        "ProductVersion" = "8:1.1.8"
         "Manufacturer" = "8:VUC"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
