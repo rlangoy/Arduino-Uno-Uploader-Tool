@@ -30,6 +30,7 @@ using System.Management;
 using BSE.Windows.Forms;
 using System.IO.Ports;
 using System.Reflection;
+using System.Threading;
 
 namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 {
@@ -389,6 +390,20 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             updateParams();
         }
 
+
+        private void statusStripBlinkThreadWorker()
+        {
+            toolStripStatusLabel1.BackColor = Color.Red;
+            Color origColor = toolStripStatusLabel1.BackColor;
+            for (int i = 0; i < 3; i++)
+            {               
+                toolStripStatusLabel1.BackColor = Color.Red;
+                Thread.Sleep(50);
+                toolStripStatusLabel1.BackColor = origColor;
+                Thread.Sleep(50);
+            }
+        }
+
         /*
          *    Upload .hex flie to the Arduino uno board 
          *    start avrdude width the pramas described in 
@@ -430,7 +445,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             
             Process p = null;
             try
-            { 
+            {
+                toolStripStatusLabel1.Text = "Uploading " + AVRDudeFileNameAndLocation;
                 p = new Process();
                 p.StartInfo.FileName = AVRDudeFileNameAndLocation;
 
@@ -438,7 +454,15 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 p.StartInfo.CreateNoWindow = false;
                 p.Start();
                 p.WaitForExit();
-                
+
+                if (p.ExitCode == 0)
+                    toolStripStatusLabel1.Text = "Upload finished";
+                else
+                {  
+                    toolStripStatusLabel1.Text = "Error while Uploading. Please retry";
+                    System.Media.SystemSounds.Hand.Play();  //Play Error sound 
+                }
+
             }
             catch (Exception ex)
             {
