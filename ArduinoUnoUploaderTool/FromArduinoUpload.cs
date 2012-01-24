@@ -471,13 +471,20 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 return;
             }
 
+            if (!File.Exists(fileName))
+            {
+                MessageBox.Show("The upload file " + fileName + " was not found\nPlease check if the file exists", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string AVRDudeFileNameAndLocation = Path.GetDirectoryName(Application.ExecutablePath) + @"\avrdude.exe";
             if (!File.Exists(AVRDudeFileNameAndLocation))
             {
                 MessageBox.Show("AVRDUDE.EXE could not found\nPlease copy avrdude.exe to the location: \n" + AVRDudeFileNameAndLocation , this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;            
             }
-            
+
+
             Process p = null;
             try
             {
