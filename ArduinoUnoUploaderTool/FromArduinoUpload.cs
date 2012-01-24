@@ -41,11 +41,13 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private USBWatcher usbWatcher;
 
         private BSE.Windows.Forms.Panel panel1;
-
+        private System.Windows.Forms.Timer StatusBlinkWarning = new System.Windows.Forms.Timer();
 
         public FormArduinoUpload()
         {
             InitializeComponent();
+            StatusBlinkWarning.Tick += new EventHandler(StatusBlinkWarning_Tick);
+            toolStripStatusLabel1.TextChanged += new EventHandler(toolStripStatusLabel1_TextChanged);
 
             // Create and initialize a Panel.
             this.panel1 = new BSE.Windows.Forms.Panel();
@@ -80,9 +82,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                     SetPanelProperties(this.Controls, panelColorTable);
                 }
             }
-
-
         }
+
 
         //List of serial ports
         private string[] ports;
@@ -390,6 +391,53 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             updateParams();
         }
 
+        private Color orgStatusLabelClr;   //Status Strip original colour
+        private Color warningStstusLabelClr= Color.Red; //Warning colour
+
+        private void StartStatusWarningBlink()
+        {
+            orgStatusLabelClr = statusStrip1.BackColor; // Save original background clr
+            this.StatusBlinkWarning.Interval = 250;
+            StatusBlinkWarning.Enabled = true;
+            StatusBlinkCounter = 0;
+            this.StatusBlinkWarning.Start();     
+        }
+
+        private void StopStatusWarningBlink()
+        {
+            this.StatusBlinkWarning.Stop();
+            statusStrip1.BackColor = orgStatusLabelClr;  //Restore original background clr            
+        }
+        
+        private int StatusBlinkCounter;                   //Timer blink counter
+        private int StatusBlinkNumberOfWarningBlinks = 5; //Number of blinks to show if a warning
+
+        private void StatusBlinkWarning_Tick(object sender, EventArgs e)
+        {
+            //Stop blinking after StatusBlinkNumberOfBlinks 
+            if (StatusBlinkCounter >= StatusBlinkNumberOfWarningBlinks)
+                StopStatusWarningBlink();
+            else
+            {
+                //Toogle status strip background colour toogle
+                if (warningStstusLabelClr == statusStrip1.BackColor)
+                    statusStrip1.BackColor = orgStatusLabelClr;
+                else
+                {
+                    statusStrip1.BackColor = warningStstusLabelClr;
+                    StatusBlinkCounter++;
+                }
+            }//end else StatusBlinkCounter > StatusBlinkNumberOfBlinks
+
+        }
+
+        void toolStripStatusLabel1_TextChanged(object sender, EventArgs e)
+        {
+            //IF toolStripLabel was displaying a warning (reset the bkgcolour)
+            if (StatusBlinkWarning.Enabled == true)
+                StopStatusWarningBlink();            
+        }
+
 
         /*
          *    Upload .hex flie to the Arduino uno board 
@@ -447,6 +495,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 else
                 {  
                     toolStripStatusLabel1.Text = "Error while Uploading. Please retry";
+                    StartStatusWarningBlink();
                     System.Media.SystemSounds.Hand.Play();  //Play Error sound 
                 }
 
