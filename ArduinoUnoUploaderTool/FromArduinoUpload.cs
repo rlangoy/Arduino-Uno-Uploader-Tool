@@ -391,19 +391,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         }
 
 
-        private void statusStripBlinkThreadWorker()
-        {
-            toolStripStatusLabel1.BackColor = Color.Red;
-            Color origColor = toolStripStatusLabel1.BackColor;
-            for (int i = 0; i < 3; i++)
-            {               
-                toolStripStatusLabel1.BackColor = Color.Red;
-                Thread.Sleep(50);
-                toolStripStatusLabel1.BackColor = origColor;
-                Thread.Sleep(50);
-            }
-        }
-
         /*
          *    Upload .hex flie to the Arduino uno board 
          *    start avrdude width the pramas described in 
