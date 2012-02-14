@@ -89,6 +89,12 @@
     <Compile Include="FormIntro.Designer.cs">
       <DependentUpon>FormIntro.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSerialTerminal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSerialTerminal.Designer.cs">
+      <DependentUpon>FormSerialTerminal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FromArduinoUpload.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </Compile>
     <EmbeddedResource Include="FormIntro.resx">
       <DependentUpon>FormIntro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSerialTerminal.resx">
+      <DependentUpon>FormSerialTerminal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FromArduinoUpload.resx">
       <DependentUpon>FromArduinoUpload.cs</DependentUpon>
