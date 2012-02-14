@@ -95,6 +95,7 @@
             this.chkSreialEcho.TabIndex = 17;
             this.chkSreialEcho.Text = "Echo";
             this.chkSreialEcho.UseVisualStyleBackColor = true;
+            this.chkSreialEcho.CheckedChanged += new System.EventHandler(this.chkSreialEcho_CheckedChanged);
             // 
             // label12
             // 
@@ -124,6 +125,7 @@
             this.cmbSerialTerm.Name = "cmbSerialTerm";
             this.cmbSerialTerm.Size = new System.Drawing.Size(69, 21);
             this.cmbSerialTerm.TabIndex = 15;
+            this.cmbSerialTerm.SelectedIndexChanged += new System.EventHandler(this.cmbSerialTerm_SelectedIndexChanged);
             // 
             // chkWrapSerialData
             // 
@@ -135,6 +137,7 @@
             this.chkWrapSerialData.TabIndex = 2;
             this.chkWrapSerialData.Text = "Wrap Data";
             this.chkWrapSerialData.UseVisualStyleBackColor = true;
+            this.chkWrapSerialData.CheckedChanged += new System.EventHandler(this.chkWrapSerialData_CheckedChanged);
             // 
             // btCelarSerialTerminalWindow
             // 
@@ -145,6 +148,7 @@
             this.btCelarSerialTerminalWindow.TabIndex = 1;
             this.btCelarSerialTerminalWindow.Text = "Clear";
             this.btCelarSerialTerminalWindow.UseVisualStyleBackColor = true;
+            this.btCelarSerialTerminalWindow.Click += new System.EventHandler(this.btCelarSerialTerminalWindow_Click);
             // 
             // txtSerialTerminal
             // 

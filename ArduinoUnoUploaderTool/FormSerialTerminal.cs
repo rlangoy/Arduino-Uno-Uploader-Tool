@@ -15,5 +15,32 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         {
             InitializeComponent();
         }
+
+        private void chkSreialEcho_CheckedChanged(object sender, EventArgs e)
+        {
+            txtSerialTerminal.Focus();
+        }
+
+        private void chkWrapSerialData_CheckedChanged(object sender, EventArgs e)
+        {
+            this.txtSerialTerminal.WrapText = chkWrapSerialData.Checked;
+        }
+
+        private void btCelarSerialTerminalWindow_Click(object sender, EventArgs e)
+        {
+            txtSerialTerminal.Clear();
+        }
+
+        private void cmbSerialTerm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*
+            this.baudRate = Convert.ToInt32(cmbSerialTerm.Text);
+            this.updateParams();
+            if (serialPort1 != null)
+                if (serialPort1.IsOpen)
+                    startSerialPort();
+            */
+
+         }
     }
 }
