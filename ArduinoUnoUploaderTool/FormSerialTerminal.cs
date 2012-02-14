@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 {
-    public partial class FormSerialTerminal : Form
+    public partial class FormSerialTerminal : Form, IRS232Data
     {
         public FormSerialTerminal()
         {
@@ -42,5 +42,44 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             */
 
          }
+
+        #region IRS232Data Members
+
+        event EventHandler dataRecievedEvent;
+
+        object objectLock = new Object();
+
+        // Explicit interface implementation required.
+        // Associate IRS232Data's event with
+        // dataRecievedEvent
+         event EventHandler IRS232Data.OnDataRecieved
+        {
+            add
+            {
+                lock (objectLock)
+                {
+                    dataRecievedEvent += value;
+                }
+            }
+            remove
+            {
+                lock (objectLock)
+                {
+                    dataRecievedEvent -= value;
+                }
+            }
+        }
+
+        public void sendRS232Data(string data)
+        {
+            // Raise IDrawingObject's event before the object is drawn.
+            EventHandler handler = dataRecievedEvent;
+            if (handler != null)
+            {                
+                handler(this, new RS232DataEventArgs(){RS232String=data});
+            }
+        }
+
+        #endregion
     }
 }

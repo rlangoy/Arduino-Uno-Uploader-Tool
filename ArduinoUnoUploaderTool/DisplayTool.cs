@@ -47,6 +47,19 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
     
     }
 
+    public class RS232DataEventArgs : EventArgs
+    {
+        public string RS232String;
+    }
+
+    public interface IRS232Data
+    {
+        // Raise this event before drawing
+        // the object.
+        event EventHandler OnDataRecieved;        
+    }
+
+
     class textNormalView : System.Windows.Forms.TextBox
     {
 
