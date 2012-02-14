@@ -57,9 +57,9 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.textBoxHexFile = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.xPanderPanelList1 = new BSE.Windows.Forms.XPanderPanelList();
+            this.xPanderPanel4 = new BSE.Windows.Forms.XPanderPanel();
             this.xPanderPanel1 = new BSE.Windows.Forms.XPanderPanel();
             this.xPanderPanel2 = new BSE.Windows.Forms.XPanderPanel();
-            this.xPanderPanel4 = new BSE.Windows.Forms.XPanderPanel();
             this.xPanderPanel3 = new BSE.Windows.Forms.XPanderPanel();
             this.panel3LinkXp2 = new BSE.Windows.Forms.Panel();
             this.chkSreialEcho = new System.Windows.Forms.CheckBox();
@@ -257,6 +257,44 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.xPanderPanelList1.TabIndex = 9;
             this.xPanderPanelList1.Text = "xPanderPanelList1";
             // 
+            // xPanderPanel4
+            // 
+            this.xPanderPanel4.CaptionFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.xPanderPanel4.CustomColors.BackColor = System.Drawing.SystemColors.Control;
+            this.xPanderPanel4.CustomColors.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
+            this.xPanderPanel4.CustomColors.CaptionCheckedGradientBegin = System.Drawing.Color.Empty;
+            this.xPanderPanel4.CustomColors.CaptionCheckedGradientEnd = System.Drawing.Color.Empty;
+            this.xPanderPanel4.CustomColors.CaptionCheckedGradientMiddle = System.Drawing.Color.Empty;
+            this.xPanderPanel4.CustomColors.CaptionCloseIcon = System.Drawing.SystemColors.ControlText;
+            this.xPanderPanel4.CustomColors.CaptionExpandIcon = System.Drawing.SystemColors.ControlText;
+            this.xPanderPanel4.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.xPanderPanel4.CustomColors.CaptionGradientEnd = System.Drawing.SystemColors.ButtonFace;
+            this.xPanderPanel4.CustomColors.CaptionGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.xPanderPanel4.CustomColors.CaptionPressedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(255)))));
+            this.xPanderPanel4.CustomColors.CaptionPressedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(255)))));
+            this.xPanderPanel4.CustomColors.CaptionPressedGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(255)))));
+            this.xPanderPanel4.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
+            this.xPanderPanel4.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
+            this.xPanderPanel4.CustomColors.CaptionSelectedGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
+            this.xPanderPanel4.CustomColors.CaptionSelectedText = System.Drawing.SystemColors.ControlText;
+            this.xPanderPanel4.CustomColors.CaptionText = System.Drawing.SystemColors.ControlText;
+            this.xPanderPanel4.CustomColors.FlatCaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.xPanderPanel4.CustomColors.FlatCaptionGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.xPanderPanel4.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
+            this.xPanderPanel4.Expand = true;
+            this.xPanderPanel4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.xPanderPanel4.Image = null;
+            this.xPanderPanel4.Name = "xPanderPanel4";
+            this.xPanderPanel4.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
+            this.xPanderPanel4.Size = new System.Drawing.Size(179, 423);
+            this.xPanderPanel4.TabIndex = 3;
+            this.xPanderPanel4.Text = "Serial Tools";
+            this.xPanderPanel4.ToolTipTextCloseIcon = null;
+            this.xPanderPanel4.ToolTipTextExpandIconPanelCollapsed = null;
+            this.xPanderPanel4.ToolTipTextExpandIconPanelExpanded = null;
+            this.xPanderPanel4.Visible = false;
+            this.xPanderPanel4.Click += new System.EventHandler(this.xPanderPanel4_Click);
+            // 
             // xPanderPanel1
             // 
             this.xPanderPanel1.CaptionFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
@@ -329,44 +367,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.xPanderPanel2.ToolTipTextExpandIconPanelExpanded = null;
             this.xPanderPanel2.Click += new System.EventHandler(this.xPanderPanel2_Click);
             // 
-            // xPanderPanel4
-            // 
-            this.xPanderPanel4.CaptionFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.xPanderPanel4.CustomColors.BackColor = System.Drawing.SystemColors.Control;
-            this.xPanderPanel4.CustomColors.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.xPanderPanel4.CustomColors.CaptionCheckedGradientBegin = System.Drawing.Color.Empty;
-            this.xPanderPanel4.CustomColors.CaptionCheckedGradientEnd = System.Drawing.Color.Empty;
-            this.xPanderPanel4.CustomColors.CaptionCheckedGradientMiddle = System.Drawing.Color.Empty;
-            this.xPanderPanel4.CustomColors.CaptionCloseIcon = System.Drawing.SystemColors.ControlText;
-            this.xPanderPanel4.CustomColors.CaptionExpandIcon = System.Drawing.SystemColors.ControlText;
-            this.xPanderPanel4.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.xPanderPanel4.CustomColors.CaptionGradientEnd = System.Drawing.SystemColors.ButtonFace;
-            this.xPanderPanel4.CustomColors.CaptionGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.xPanderPanel4.CustomColors.CaptionPressedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(255)))));
-            this.xPanderPanel4.CustomColors.CaptionPressedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(255)))));
-            this.xPanderPanel4.CustomColors.CaptionPressedGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(204)))), ((int)(((byte)(255)))));
-            this.xPanderPanel4.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
-            this.xPanderPanel4.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
-            this.xPanderPanel4.CustomColors.CaptionSelectedGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
-            this.xPanderPanel4.CustomColors.CaptionSelectedText = System.Drawing.SystemColors.ControlText;
-            this.xPanderPanel4.CustomColors.CaptionText = System.Drawing.SystemColors.ControlText;
-            this.xPanderPanel4.CustomColors.FlatCaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.xPanderPanel4.CustomColors.FlatCaptionGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.xPanderPanel4.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
-            this.xPanderPanel4.Expand = true;
-            this.xPanderPanel4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.xPanderPanel4.Image = null;
-            this.xPanderPanel4.Name = "xPanderPanel4";
-            this.xPanderPanel4.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
-            this.xPanderPanel4.Size = new System.Drawing.Size(179, 423);
-            this.xPanderPanel4.TabIndex = 3;
-            this.xPanderPanel4.Text = "Serial Tools";
-            this.xPanderPanel4.ToolTipTextCloseIcon = null;
-            this.xPanderPanel4.ToolTipTextExpandIconPanelCollapsed = null;
-            this.xPanderPanel4.ToolTipTextExpandIconPanelExpanded = null;
-            this.xPanderPanel4.Visible = false;
-            this.xPanderPanel4.Click += new System.EventHandler(this.xPanderPanel4_Click);
-            // 
             // xPanderPanel3
             // 
             this.xPanderPanel3.CaptionFont = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
@@ -435,7 +435,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panel3LinkXp2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel3LinkXp2.Image = null;
             this.panel3LinkXp2.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.panel3LinkXp2.Location = new System.Drawing.Point(0, 0);
+            this.panel3LinkXp2.Location = new System.Drawing.Point(37, 10);
             this.panel3LinkXp2.MinimumSize = new System.Drawing.Size(27, 27);
             this.panel3LinkXp2.Name = "panel3LinkXp2";
             this.panel3LinkXp2.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
@@ -545,7 +545,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panel3LinkXp3.Controls.Add(this.groupBox1);
             this.panel3LinkXp3.Controls.Add(this.chkUSBNotify);
             this.panel3LinkXp3.Controls.Add(this.btConfigSave);
-            this.panel3LinkXp3.Controls.Add(this.panel3LinkXp2);
             this.panel3LinkXp3.Controls.Add(this.groupBox2);
             this.panel3LinkXp3.CustomColors.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
             this.panel3LinkXp3.CustomColors.CaptionCloseIcon = System.Drawing.SystemColors.ControlText;
@@ -810,6 +809,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panelMainPlugin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMainPlugin.Controls.Add(this.panel3LinkXp2);
             this.panelMainPlugin.Controls.Add(this.panel3LinkXp3);
             this.panelMainPlugin.Location = new System.Drawing.Point(179, 2);
             this.panelMainPlugin.Name = "panelMainPlugin";

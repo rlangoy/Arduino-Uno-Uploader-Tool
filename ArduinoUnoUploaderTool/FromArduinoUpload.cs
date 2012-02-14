@@ -704,6 +704,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             };
         }
 
+        //Remove Later!! Implemented..
         private void btCelarSerialTerminalWindow_Click(object sender, EventArgs e)
         {
             txtSerialTerminal.Clear();
@@ -733,6 +734,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             }
         }
 
+        //Remove Later!! Implemented..
         private void chkWrapSerialData_CheckedChanged(object sender, EventArgs e)
         {
             this.txtSerialTerminal.WrapText = chkWrapSerialData.Checked;
@@ -763,6 +765,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 
         }
 
+        //Remove Later!! Implemented..
         private void chkSreialEcho_CheckedChanged(object sender, EventArgs e)
         {
             txtSerialTerminal.Focus();
