@@ -89,7 +89,7 @@
             this.panel3LinkXp3.ShowCloseIcon = true;
             this.panel3LinkXp3.ShowExpandIcon = true;
             this.panel3LinkXp3.ShowXPanderPanelProfessionalStyle = true;
-            this.panel3LinkXp3.Size = new System.Drawing.Size(673, 362);
+            this.panel3LinkXp3.Size = new System.Drawing.Size(673, 357);
             this.panel3LinkXp3.TabIndex = 14;
             this.panel3LinkXp3.Text = "Configuration";
             this.panel3LinkXp3.ToolTipTextCloseIcon = null;
@@ -116,6 +116,7 @@
             // 
             // label13
             // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(365, 14);
             this.label13.Name = "label13";
@@ -125,6 +126,7 @@
             // 
             // cmbSerialUploadSpeed
             // 
+            this.cmbSerialUploadSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbSerialUploadSpeed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSerialUploadSpeed.FormattingEnabled = true;
             this.cmbSerialUploadSpeed.Items.AddRange(new object[] {
@@ -205,7 +207,7 @@
             // btConfigSave
             // 
             this.btConfigSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btConfigSave.Location = new System.Drawing.Point(552, 314);
+            this.btConfigSave.Location = new System.Drawing.Point(552, 309);
             this.btConfigSave.Name = "btConfigSave";
             this.btConfigSave.Size = new System.Drawing.Size(108, 27);
             this.btConfigSave.TabIndex = 4;
@@ -318,7 +320,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 388);
+            this.ClientSize = new System.Drawing.Size(675, 352);
             this.Controls.Add(this.panel3LinkXp3);
             this.Name = "FormConfiguration";
             this.Text = "FormConfiguration";
