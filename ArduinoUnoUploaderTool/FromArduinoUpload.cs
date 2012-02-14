@@ -575,39 +575,31 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private void ShowLinkedPanelNo(int panelNo)
         {
             toolStripStatusLabel1.Text = "";
-            //panel3LinkXp1.Visible = false;
             panel3LinkXp2.Visible = false;
             panel3LinkXp3.Visible = false;
-            //panel3LinkXp4.Visible = false;
 
             //Form to be displayed
             Form newForm;
-
+            
+            //Select the for to be displayed
             if (panelNo == 1)
                 newForm = new FormIntro();
             else if (panelNo == 2)
                 newForm = new FormSerialTerminal();
-             else
+            else
                 newForm = new FormConfiguration();
 
-
-                toolStripStatusLabel1.Text = "Showing: " + newForm.Text;
-
-
-             panelMainPlugin.Visible = true;
+            panelMainPlugin.Visible = true;
             newForm.TopLevel = false;
             //Remove the border
             newForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            // size the Form, set its TitleBar attributes, FormBorderStyle or whatever
-            panelMainPlugin.Controls.Clear();//Remove all controls
+            
+            panelMainPlugin.Controls.Clear();//Remove old form
 
             panelMainPlugin.Controls.Add(newForm);
             newForm.Show();
-            newForm.Dock = DockStyle.Top;
+            newForm.Dock = DockStyle.Fill;
             newForm.BringToFront();
-
-            //panel3LinkXp2.Controls.Add(
-
         }
 
         private void xPanderPanel1_Click(object sender, EventArgs e)
@@ -646,12 +638,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                         cmbSerialUploadSpeed.Text = param.Substring(1).Trim();
                         if (cmbSerialUploadSpeed.Text != param.Substring(1).Trim())
                         {
-                            //ComboBox.ObjectCollection mySpeeds = cmbSerialUploadSpeed.Items;
-                            //cmbSerialUploadSpeed.Items.Clear();                            
-                            //cmbSerialUploadSpeed.Items = mySpeeds;
-
                             cmbSerialUploadSpeed.Text="";
-
                         }
 
                     }

@@ -96,6 +96,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panel3LinkXp3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panelMainPlugin.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -244,9 +245,9 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.xPanderPanelList1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.xPanderPanelList1.CaptionStyle = BSE.Windows.Forms.CaptionStyle.Normal;
+            this.xPanderPanelList1.Controls.Add(this.xPanderPanel4);
             this.xPanderPanelList1.Controls.Add(this.xPanderPanel1);
             this.xPanderPanelList1.Controls.Add(this.xPanderPanel2);
-            this.xPanderPanelList1.Controls.Add(this.xPanderPanel4);
             this.xPanderPanelList1.Controls.Add(this.xPanderPanel3);
             this.xPanderPanelList1.GradientBackground = System.Drawing.Color.Empty;
             this.xPanderPanelList1.Location = new System.Drawing.Point(0, 2);
@@ -316,12 +317,11 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.xPanderPanel2.CustomColors.FlatCaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.xPanderPanel2.CustomColors.FlatCaptionGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.xPanderPanel2.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
-            this.xPanderPanel2.Expand = true;
             this.xPanderPanel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.xPanderPanel2.Image = null;
             this.xPanderPanel2.Name = "xPanderPanel2";
             this.xPanderPanel2.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
-            this.xPanderPanel2.Size = new System.Drawing.Size(179, 423);
+            this.xPanderPanel2.Size = new System.Drawing.Size(179, 25);
             this.xPanderPanel2.TabIndex = 1;
             this.xPanderPanel2.Text = "Serial Terminal";
             this.xPanderPanel2.ToolTipTextCloseIcon = null;
@@ -353,11 +353,12 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.xPanderPanel4.CustomColors.FlatCaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.xPanderPanel4.CustomColors.FlatCaptionGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.xPanderPanel4.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
+            this.xPanderPanel4.Expand = true;
             this.xPanderPanel4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.xPanderPanel4.Image = null;
             this.xPanderPanel4.Name = "xPanderPanel4";
             this.xPanderPanel4.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
-            this.xPanderPanel4.Size = new System.Drawing.Size(179, 25);
+            this.xPanderPanel4.Size = new System.Drawing.Size(179, 423);
             this.xPanderPanel4.TabIndex = 3;
             this.xPanderPanel4.Text = "Serial Tools";
             this.xPanderPanel4.ToolTipTextCloseIcon = null;
@@ -434,7 +435,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panel3LinkXp2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel3LinkXp2.Image = null;
             this.panel3LinkXp2.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.panel3LinkXp2.Location = new System.Drawing.Point(676, 350);
+            this.panel3LinkXp2.Location = new System.Drawing.Point(0, 0);
             this.panel3LinkXp2.MinimumSize = new System.Drawing.Size(27, 27);
             this.panel3LinkXp2.Name = "panel3LinkXp2";
             this.panel3LinkXp2.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
@@ -562,7 +563,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panel3LinkXp3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel3LinkXp3.Image = null;
             this.panel3LinkXp3.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.panel3LinkXp3.Location = new System.Drawing.Point(748, 351);
+            this.panel3LinkXp3.Location = new System.Drawing.Point(285, 43);
             this.panel3LinkXp3.MinimumSize = new System.Drawing.Size(27, 27);
             this.panel3LinkXp3.Name = "panel3LinkXp3";
             this.panel3LinkXp3.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
@@ -809,6 +810,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panelMainPlugin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMainPlugin.Controls.Add(this.panel3LinkXp3);
             this.panelMainPlugin.Location = new System.Drawing.Point(179, 2);
             this.panelMainPlugin.Name = "panelMainPlugin";
             this.panelMainPlugin.Size = new System.Drawing.Size(694, 370);
@@ -823,7 +825,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.xPanderPanelList1);
-            this.Controls.Add(this.panel3LinkXp3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -844,6 +845,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panelMainPlugin.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
