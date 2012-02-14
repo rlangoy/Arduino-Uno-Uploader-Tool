@@ -575,22 +575,38 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private void ShowLinkedPanelNo(int panelNo)
         {
             toolStripStatusLabel1.Text = "";
-            panel3LinkXp1.Visible = false;
+            //panel3LinkXp1.Visible = false;
             panel3LinkXp2.Visible = false;
             panel3LinkXp3.Visible = false;
-            panel3LinkXp4.Visible = false;
-            
-            if(panelNo ==1 )
-                panel3LinkXp1.Visible = true;
+            //panel3LinkXp4.Visible = false;
 
-            if (panelNo == 2)
-                panel3LinkXp2.Visible = true;
+            //Form to be displayed
+            Form newForm;
 
-            if (panelNo == 3)
-                panel3LinkXp3.Visible = true;
+            if (panelNo == 1)
+                newForm = new FormIntro();
+            else if (panelNo == 2)
+                newForm = new FormSerialTerminal();
+             else
+                newForm = new FormConfiguration();
 
-            if (panelNo == 4)
-                panel3LinkXp4.Visible = true;
+
+                toolStripStatusLabel1.Text = "Showing: " + newForm.Text;
+
+
+             panelMainPlugin.Visible = true;
+            newForm.TopLevel = false;
+            //Remove the border
+            newForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            // size the Form, set its TitleBar attributes, FormBorderStyle or whatever
+            panelMainPlugin.Controls.Clear();//Remove all controls
+
+            panelMainPlugin.Controls.Add(newForm);
+            newForm.Show();
+            newForm.Dock = DockStyle.Top;
+            newForm.BringToFront();
+
+            //panel3LinkXp2.Controls.Add(
 
         }
 

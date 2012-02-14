@@ -64,12 +64,10 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panel3LinkXp2 = new BSE.Windows.Forms.Panel();
             this.chkSreialEcho = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtSerialTerminal = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.textNormalView();
             this.cmbSerialTerm = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.cmbSerial();
             this.chkWrapSerialData = new System.Windows.Forms.CheckBox();
             this.btCelarSerialTerminalWindow = new System.Windows.Forms.Button();
-            this.panel3LinkXp1 = new BSE.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtSerialTerminal = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.textNormalView();
             this.panel3LinkXp3 = new BSE.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -90,13 +88,11 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbSerialSpeedCfg = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.cmbSerial();
-            this.panel3LinkXp4 = new BSE.Windows.Forms.Panel();
+            this.panelMainPlugin = new System.Windows.Forms.Panel();
             this.statusStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.xPanderPanelList1.SuspendLayout();
             this.panel3LinkXp2.SuspendLayout();
-            this.panel3LinkXp1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3LinkXp3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -284,12 +280,11 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.xPanderPanel1.CustomColors.FlatCaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.xPanderPanel1.CustomColors.FlatCaptionGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.xPanderPanel1.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
-            this.xPanderPanel1.Expand = true;
             this.xPanderPanel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.xPanderPanel1.Image = null;
             this.xPanderPanel1.Name = "xPanderPanel1";
             this.xPanderPanel1.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
-            this.xPanderPanel1.Size = new System.Drawing.Size(179, 423);
+            this.xPanderPanel1.Size = new System.Drawing.Size(179, 25);
             this.xPanderPanel1.TabIndex = 0;
             this.xPanderPanel1.Text = "Intro";
             this.xPanderPanel1.ToolTipTextCloseIcon = null;
@@ -321,11 +316,12 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.xPanderPanel2.CustomColors.FlatCaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
             this.xPanderPanel2.CustomColors.FlatCaptionGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.xPanderPanel2.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
+            this.xPanderPanel2.Expand = true;
             this.xPanderPanel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.xPanderPanel2.Image = null;
             this.xPanderPanel2.Name = "xPanderPanel2";
             this.xPanderPanel2.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
-            this.xPanderPanel2.Size = new System.Drawing.Size(179, 25);
+            this.xPanderPanel2.Size = new System.Drawing.Size(179, 423);
             this.xPanderPanel2.TabIndex = 1;
             this.xPanderPanel2.Text = "Serial Terminal";
             this.xPanderPanel2.ToolTipTextCloseIcon = null;
@@ -438,7 +434,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panel3LinkXp2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel3LinkXp2.Image = null;
             this.panel3LinkXp2.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.panel3LinkXp2.Location = new System.Drawing.Point(181, 0);
+            this.panel3LinkXp2.Location = new System.Drawing.Point(676, 350);
             this.panel3LinkXp2.MinimumSize = new System.Drawing.Size(27, 27);
             this.panel3LinkXp2.Name = "panel3LinkXp2";
             this.panel3LinkXp2.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
@@ -477,21 +473,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.label12.Size = new System.Drawing.Size(65, 15);
             this.label12.TabIndex = 16;
             this.label12.Text = "Baud Rate";
-            // 
-            // txtSerialTerminal
-            // 
-            this.txtSerialTerminal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSerialTerminal.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSerialTerminal.Location = new System.Drawing.Point(24, 31);
-            this.txtSerialTerminal.Multiline = true;
-            this.txtSerialTerminal.Name = "txtSerialTerminal";
-            this.txtSerialTerminal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSerialTerminal.Size = new System.Drawing.Size(653, 296);
-            this.txtSerialTerminal.TabIndex = 0;
-            this.txtSerialTerminal.WrapText = false;
-            this.txtSerialTerminal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSerialTerminal_KeyPress);
             // 
             // cmbSerialTerm
             // 
@@ -536,55 +517,20 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.btCelarSerialTerminalWindow.UseVisualStyleBackColor = true;
             this.btCelarSerialTerminalWindow.Click += new System.EventHandler(this.btCelarSerialTerminalWindow_Click);
             // 
-            // panel3LinkXp1
+            // txtSerialTerminal
             // 
-            this.panel3LinkXp1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.txtSerialTerminal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3LinkXp1.AssociatedSplitter = null;
-            this.panel3LinkXp1.BackColor = System.Drawing.Color.Transparent;
-            this.panel3LinkXp1.CaptionFont = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Bold);
-            this.panel3LinkXp1.CaptionHeight = 27;
-            this.panel3LinkXp1.Controls.Add(this.pictureBox1);
-            this.panel3LinkXp1.CustomColors.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.panel3LinkXp1.CustomColors.CaptionCloseIcon = System.Drawing.SystemColors.ControlText;
-            this.panel3LinkXp1.CustomColors.CaptionExpandIcon = System.Drawing.SystemColors.ControlText;
-            this.panel3LinkXp1.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.panel3LinkXp1.CustomColors.CaptionGradientEnd = System.Drawing.SystemColors.ButtonFace;
-            this.panel3LinkXp1.CustomColors.CaptionGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.panel3LinkXp1.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
-            this.panel3LinkXp1.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
-            this.panel3LinkXp1.CustomColors.CaptionText = System.Drawing.SystemColors.ControlText;
-            this.panel3LinkXp1.CustomColors.CollapsedCaptionText = System.Drawing.SystemColors.ControlText;
-            this.panel3LinkXp1.CustomColors.ContentGradientBegin = System.Drawing.SystemColors.ButtonFace;
-            this.panel3LinkXp1.CustomColors.ContentGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.panel3LinkXp1.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
-            this.panel3LinkXp1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel3LinkXp1.Image = null;
-            this.panel3LinkXp1.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.panel3LinkXp1.Location = new System.Drawing.Point(181, 0);
-            this.panel3LinkXp1.MinimumSize = new System.Drawing.Size(27, 27);
-            this.panel3LinkXp1.Name = "panel3LinkXp1";
-            this.panel3LinkXp1.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
-            this.panel3LinkXp1.ShowCloseIcon = true;
-            this.panel3LinkXp1.ShowExpandIcon = true;
-            this.panel3LinkXp1.ShowXPanderPanelProfessionalStyle = true;
-            this.panel3LinkXp1.Size = new System.Drawing.Size(691, 370);
-            this.panel3LinkXp1.TabIndex = 11;
-            this.panel3LinkXp1.Text = "Programmer and tools for the Arduino Uno Boards";
-            this.panel3LinkXp1.ToolTipTextCloseIcon = null;
-            this.panel3LinkXp1.ToolTipTextExpandIconPanelCollapsed = null;
-            this.panel3LinkXp1.ToolTipTextExpandIconPanelExpanded = null;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(55, 42);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(448, 316);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.txtSerialTerminal.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSerialTerminal.Location = new System.Drawing.Point(24, 31);
+            this.txtSerialTerminal.Multiline = true;
+            this.txtSerialTerminal.Name = "txtSerialTerminal";
+            this.txtSerialTerminal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtSerialTerminal.Size = new System.Drawing.Size(653, 296);
+            this.txtSerialTerminal.TabIndex = 0;
+            this.txtSerialTerminal.WrapText = false;
+            this.txtSerialTerminal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSerialTerminal_KeyPress);
             // 
             // panel3LinkXp3
             // 
@@ -598,6 +544,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panel3LinkXp3.Controls.Add(this.groupBox1);
             this.panel3LinkXp3.Controls.Add(this.chkUSBNotify);
             this.panel3LinkXp3.Controls.Add(this.btConfigSave);
+            this.panel3LinkXp3.Controls.Add(this.panel3LinkXp2);
             this.panel3LinkXp3.Controls.Add(this.groupBox2);
             this.panel3LinkXp3.CustomColors.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
             this.panel3LinkXp3.CustomColors.CaptionCloseIcon = System.Drawing.SystemColors.ControlText;
@@ -615,7 +562,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panel3LinkXp3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel3LinkXp3.Image = null;
             this.panel3LinkXp3.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.panel3LinkXp3.Location = new System.Drawing.Point(181, 0);
+            this.panel3LinkXp3.Location = new System.Drawing.Point(748, 351);
             this.panel3LinkXp3.MinimumSize = new System.Drawing.Size(27, 27);
             this.panel3LinkXp3.Name = "panel3LinkXp3";
             this.panel3LinkXp3.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
@@ -857,54 +804,26 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.cmbSerialSpeedCfg.TabIndex = 5;
             this.cmbSerialSpeedCfg.SelectedIndexChanged += new System.EventHandler(this.cmbSerialSpeedCfg_SelectedIndexChanged);
             // 
-            // panel3LinkXp4
+            // panelMainPlugin
             // 
-            this.panel3LinkXp4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.panelMainPlugin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3LinkXp4.AssociatedSplitter = null;
-            this.panel3LinkXp4.BackColor = System.Drawing.Color.Transparent;
-            this.panel3LinkXp4.CaptionFont = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Bold);
-            this.panel3LinkXp4.CaptionHeight = 27;
-            this.panel3LinkXp4.CustomColors.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.panel3LinkXp4.CustomColors.CaptionCloseIcon = System.Drawing.SystemColors.ControlText;
-            this.panel3LinkXp4.CustomColors.CaptionExpandIcon = System.Drawing.SystemColors.ControlText;
-            this.panel3LinkXp4.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.panel3LinkXp4.CustomColors.CaptionGradientEnd = System.Drawing.SystemColors.ButtonFace;
-            this.panel3LinkXp4.CustomColors.CaptionGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.panel3LinkXp4.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
-            this.panel3LinkXp4.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
-            this.panel3LinkXp4.CustomColors.CaptionText = System.Drawing.SystemColors.ControlText;
-            this.panel3LinkXp4.CustomColors.CollapsedCaptionText = System.Drawing.SystemColors.ControlText;
-            this.panel3LinkXp4.CustomColors.ContentGradientBegin = System.Drawing.SystemColors.ButtonFace;
-            this.panel3LinkXp4.CustomColors.ContentGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.panel3LinkXp4.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
-            this.panel3LinkXp4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel3LinkXp4.Image = null;
-            this.panel3LinkXp4.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.panel3LinkXp4.Location = new System.Drawing.Point(181, 0);
-            this.panel3LinkXp4.MinimumSize = new System.Drawing.Size(27, 27);
-            this.panel3LinkXp4.Name = "panel3LinkXp4";
-            this.panel3LinkXp4.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
-            this.panel3LinkXp4.Size = new System.Drawing.Size(693, 370);
-            this.panel3LinkXp4.TabIndex = 14;
-            this.panel3LinkXp4.Text = "Serial Tools";
-            this.panel3LinkXp4.ToolTipTextCloseIcon = null;
-            this.panel3LinkXp4.ToolTipTextExpandIconPanelCollapsed = null;
-            this.panel3LinkXp4.ToolTipTextExpandIconPanelExpanded = null;
+            this.panelMainPlugin.Location = new System.Drawing.Point(179, 2);
+            this.panelMainPlugin.Name = "panelMainPlugin";
+            this.panelMainPlugin.Size = new System.Drawing.Size(694, 370);
+            this.panelMainPlugin.TabIndex = 16;
             // 
             // FormArduinoUpload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 522);
+            this.Controls.Add(this.panelMainPlugin);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.xPanderPanelList1);
-            this.Controls.Add(this.panel3LinkXp1);
             this.Controls.Add(this.panel3LinkXp3);
-            this.Controls.Add(this.panel3LinkXp4);
-            this.Controls.Add(this.panel3LinkXp2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -919,8 +838,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.xPanderPanelList1.ResumeLayout(false);
             this.panel3LinkXp2.ResumeLayout(false);
             this.panel3LinkXp2.PerformLayout();
-            this.panel3LinkXp1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3LinkXp3.ResumeLayout(false);
             this.panel3LinkXp3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -947,7 +864,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private BSE.Windows.Forms.XPanderPanel xPanderPanel2;
         private BSE.Windows.Forms.XPanderPanel xPanderPanel3;
         private BSE.Windows.Forms.Panel panel2;
-        private BSE.Windows.Forms.Panel panel3LinkXp1;
         private BSE.Windows.Forms.Panel panel3LinkXp2;
         private BSE.Windows.Forms.Panel panel3LinkXp3;
         private System.Windows.Forms.TextBox textBoxArduinoUnoParamsVer5;
@@ -957,9 +873,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private System.Windows.Forms.CheckBox chkUSBNotify;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private BSE.Windows.Forms.XPanderPanel xPanderPanel4;
-        private BSE.Windows.Forms.Panel panel3LinkXp4;
         private HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.textNormalView txtSerialTerminal;
         private System.Windows.Forms.Button btCelarSerialTerminalWindow;
         private System.Windows.Forms.CheckBox chkWrapSerialData;
@@ -978,6 +892,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private System.Windows.Forms.CheckBox chkSreialEcho;
         private System.Windows.Forms.Label label13;
         private cmbSerial cmbSerialUploadSpeed;
+        private System.Windows.Forms.Panel panelMainPlugin;
     }
 }
 
