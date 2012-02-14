@@ -69,20 +69,19 @@
             this.panel3LinkXp2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel3LinkXp2.Image = null;
             this.panel3LinkXp2.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.panel3LinkXp2.Location = new System.Drawing.Point(-8, -19);
+            this.panel3LinkXp2.Location = new System.Drawing.Point(2, 0);
             this.panel3LinkXp2.MinimumSize = new System.Drawing.Size(27, 27);
             this.panel3LinkXp2.Name = "panel3LinkXp2";
             this.panel3LinkXp2.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
             this.panel3LinkXp2.ShowCloseIcon = true;
             this.panel3LinkXp2.ShowExpandIcon = true;
             this.panel3LinkXp2.ShowXPanderPanelProfessionalStyle = true;
-            this.panel3LinkXp2.Size = new System.Drawing.Size(691, 370);
+            this.panel3LinkXp2.Size = new System.Drawing.Size(695, 370);
             this.panel3LinkXp2.TabIndex = 13;
             this.panel3LinkXp2.Text = "Serial Terminal";
             this.panel3LinkXp2.ToolTipTextCloseIcon = null;
             this.panel3LinkXp2.ToolTipTextExpandIconPanelCollapsed = null;
             this.panel3LinkXp2.ToolTipTextExpandIconPanelExpanded = null;
-            this.panel3LinkXp2.Visible = false;
             // 
             // chkSreialEcho
             // 
@@ -90,7 +89,7 @@
             this.chkSreialEcho.AutoSize = true;
             this.chkSreialEcho.Checked = true;
             this.chkSreialEcho.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkSreialEcho.Location = new System.Drawing.Point(296, 341);
+            this.chkSreialEcho.Location = new System.Drawing.Point(300, 341);
             this.chkSreialEcho.Name = "chkSreialEcho";
             this.chkSreialEcho.Size = new System.Drawing.Size(51, 17);
             this.chkSreialEcho.TabIndex = 17;
@@ -101,7 +100,7 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(365, 327);
+            this.label12.Location = new System.Drawing.Point(369, 327);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(58, 13);
             this.label12.TabIndex = 16;
@@ -121,7 +120,7 @@
             "38400",
             "57600",
             "115200"});
-            this.cmbSerialTerm.Location = new System.Drawing.Point(374, 345);
+            this.cmbSerialTerm.Location = new System.Drawing.Point(378, 345);
             this.cmbSerialTerm.Name = "cmbSerialTerm";
             this.cmbSerialTerm.Size = new System.Drawing.Size(69, 21);
             this.cmbSerialTerm.TabIndex = 15;
@@ -130,7 +129,7 @@
             // 
             this.chkWrapSerialData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkWrapSerialData.AutoSize = true;
-            this.chkWrapSerialData.Location = new System.Drawing.Point(471, 341);
+            this.chkWrapSerialData.Location = new System.Drawing.Point(475, 341);
             this.chkWrapSerialData.Name = "chkWrapSerialData";
             this.chkWrapSerialData.Size = new System.Drawing.Size(78, 17);
             this.chkWrapSerialData.TabIndex = 2;
@@ -140,7 +139,7 @@
             // btCelarSerialTerminalWindow
             // 
             this.btCelarSerialTerminalWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btCelarSerialTerminalWindow.Location = new System.Drawing.Point(571, 332);
+            this.btCelarSerialTerminalWindow.Location = new System.Drawing.Point(575, 332);
             this.btCelarSerialTerminalWindow.Name = "btCelarSerialTerminalWindow";
             this.btCelarSerialTerminalWindow.Size = new System.Drawing.Size(106, 30);
             this.btCelarSerialTerminalWindow.TabIndex = 1;
@@ -157,7 +156,7 @@
             this.txtSerialTerminal.Multiline = true;
             this.txtSerialTerminal.Name = "txtSerialTerminal";
             this.txtSerialTerminal.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSerialTerminal.Size = new System.Drawing.Size(653, 296);
+            this.txtSerialTerminal.Size = new System.Drawing.Size(657, 296);
             this.txtSerialTerminal.TabIndex = 0;
             this.txtSerialTerminal.WrapText = false;
             // 
@@ -165,7 +164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 332);
+            this.ClientSize = new System.Drawing.Size(699, 373);
             this.Controls.Add(this.panel3LinkXp2);
             this.Name = "FormSerialTerminal";
             this.Text = "FormSerialTerminal";

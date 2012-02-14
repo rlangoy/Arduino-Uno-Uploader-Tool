@@ -37,7 +37,9 @@
             // 
             // panel3LinkXp1
             // 
-            this.panel3LinkXp1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel3LinkXp1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3LinkXp1.AssociatedSplitter = null;
             this.panel3LinkXp1.BackColor = System.Drawing.Color.Transparent;
             this.panel3LinkXp1.CaptionFont = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Bold);

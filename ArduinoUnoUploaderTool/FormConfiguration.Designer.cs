@@ -82,20 +82,19 @@
             this.panel3LinkXp3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel3LinkXp3.Image = null;
             this.panel3LinkXp3.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.panel3LinkXp3.Location = new System.Drawing.Point(-8, -19);
+            this.panel3LinkXp3.Location = new System.Drawing.Point(1, 1);
             this.panel3LinkXp3.MinimumSize = new System.Drawing.Size(27, 27);
             this.panel3LinkXp3.Name = "panel3LinkXp3";
             this.panel3LinkXp3.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
             this.panel3LinkXp3.ShowCloseIcon = true;
             this.panel3LinkXp3.ShowExpandIcon = true;
             this.panel3LinkXp3.ShowXPanderPanelProfessionalStyle = true;
-            this.panel3LinkXp3.Size = new System.Drawing.Size(691, 370);
+            this.panel3LinkXp3.Size = new System.Drawing.Size(673, 362);
             this.panel3LinkXp3.TabIndex = 14;
             this.panel3LinkXp3.Text = "Configuration";
             this.panel3LinkXp3.ToolTipTextCloseIcon = null;
             this.panel3LinkXp3.ToolTipTextExpandIconPanelCollapsed = null;
             this.panel3LinkXp3.ToolTipTextExpandIconPanelExpanded = null;
-            this.panel3LinkXp3.Visible = false;
             // 
             // groupBox1
             // 
@@ -110,7 +109,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(13, 80);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(496, 264);
+            this.groupBox1.Size = new System.Drawing.Size(478, 264);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "AVRDUDE - AVR Downloader/UploaDEr parameters";
@@ -149,7 +148,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxArduinoUnoParamsVer5.Location = new System.Drawing.Point(22, 70);
             this.textBoxArduinoUnoParamsVer5.Name = "textBoxArduinoUnoParamsVer5";
-            this.textBoxArduinoUnoParamsVer5.Size = new System.Drawing.Size(432, 20);
+            this.textBoxArduinoUnoParamsVer5.Size = new System.Drawing.Size(414, 20);
             this.textBoxArduinoUnoParamsVer5.TabIndex = 6;
             // 
             // label4
@@ -170,13 +169,13 @@
             this.textParams.Multiline = true;
             this.textParams.Name = "textParams";
             this.textParams.ReadOnly = true;
-            this.textParams.Size = new System.Drawing.Size(433, 65);
+            this.textParams.Size = new System.Drawing.Size(415, 65);
             this.textParams.TabIndex = 2;
             // 
             // btCinfigDefault
             // 
             this.btCinfigDefault.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btCinfigDefault.Location = new System.Drawing.Point(280, 220);
+            this.btCinfigDefault.Location = new System.Drawing.Point(262, 220);
             this.btCinfigDefault.Name = "btCinfigDefault";
             this.btCinfigDefault.Size = new System.Drawing.Size(175, 27);
             this.btCinfigDefault.TabIndex = 7;
@@ -206,7 +205,7 @@
             // btConfigSave
             // 
             this.btConfigSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btConfigSave.Location = new System.Drawing.Point(571, 339);
+            this.btConfigSave.Location = new System.Drawing.Point(552, 314);
             this.btConfigSave.Name = "btConfigSave";
             this.btConfigSave.Size = new System.Drawing.Size(108, 27);
             this.btConfigSave.TabIndex = 4;
@@ -224,7 +223,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.cmbSerialSpeedCfg);
-            this.groupBox2.Location = new System.Drawing.Point(537, 53);
+            this.groupBox2.Location = new System.Drawing.Point(519, 53);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(141, 207);
             this.groupBox2.TabIndex = 10;
@@ -319,7 +318,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 332);
+            this.ClientSize = new System.Drawing.Size(675, 388);
             this.Controls.Add(this.panel3LinkXp3);
             this.Name = "FormConfiguration";
             this.Text = "FormConfiguration";
