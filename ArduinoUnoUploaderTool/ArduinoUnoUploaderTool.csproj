@@ -83,6 +83,12 @@
     <Compile Include="DisplayTool.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FormIntro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIntro.Designer.cs">
+      <DependentUpon>FormIntro.cs</DependentUpon>
+    </Compile>
     <Compile Include="FromArduinoUpload.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     <Compile Include="USBNotify.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="FormIntro.resx">
+      <DependentUpon>FormIntro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FromArduinoUpload.resx">
       <DependentUpon>FromArduinoUpload.cs</DependentUpon>
     </EmbeddedResource>
