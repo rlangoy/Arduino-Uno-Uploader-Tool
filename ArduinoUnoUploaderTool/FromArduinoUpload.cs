@@ -371,6 +371,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                     IRS232Data rs232Interface = plugInForms as IRS232Data;
                     rs232Interface.OnDataRecieved += new EventHandler(pluginFormWanstTosendRS232Data);
                     rs232Interface.iRS232Data = this;
+                    rs232Interface.BaudRate = this.baudRate;
                 }
             }
 
@@ -392,8 +393,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
         private void Form_Load(object sender, EventArgs e)
         {
-            //init the form components
-            initPlugableComponents();
 
             //Display Version Information
             Version version = new Version(Application.ProductVersion);
@@ -404,7 +403,10 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             
             //Try to read config params from file
             ReadConfigToFile();
-            
+
+            //init the form components
+            initPlugableComponents();
+
             textBoxHexFile.Text = fileName;
 
             updateParams();
@@ -427,7 +429,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 comboBoxSerailPorts.Items.Add(comPort);
 
             comboBoxSerailPorts.Text = comPort;
-            
+
+
             //Start the serial port so that the listening plugins
             //could use it.
             startSerialPort();
