@@ -73,7 +73,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
     {
         // Raise this event before drawing
         // the object.
-        event EventHandler OnDataRecieved;        
+        event EventHandler OnDataRecieved;
+        IRS232Data iRS232Data { set; }
     }
 
 

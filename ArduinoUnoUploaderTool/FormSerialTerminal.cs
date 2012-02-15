@@ -59,6 +59,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             */
 
          }
+        private IRS232Data parentIRS232DataInterface=null;
 
         #region IRS232Data Members
 
@@ -89,13 +90,35 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
         public void sendRS232Data(string data)
         {
-            // Raise IDrawingObject's event before the object is drawn.
+            // Raise IRS232Data's event 's event 
             EventHandler handler = dataRecievedEvent;
             if (handler != null)
             {                
                 handler(this, new RS232DataEventArgs(){RS232String=data});
             }
         }
+        
+        //Used to get the parent Interface
+        public IRS232Data iRS232Data
+        {
+            set 
+            { 
+                parentIRS232DataInterface = value; 
+                if(parentIRS232DataInterface!=null)
+                    parentIRS232DataInterface.OnDataRecieved += new EventHandler(parentFormWanstTosendRS232Data);
+            }
+        }
+
+
+        //trigered when a plgin wants to send RS232 data
+        void parentFormWanstTosendRS232Data(object sender, EventArgs e)
+        {
+            RS232DataEventArgs rs232Data = e as RS232DataEventArgs;
+
+            //Display the recieved text
+            this.txtSerialTerminal.AddString(rs232Data.RS232String);
+        }
+
 
         #endregion
 
@@ -119,5 +142,9 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             };
 
         }
+
+
+
+
     }
 }

@@ -34,7 +34,7 @@ using System.Threading;
 
 namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 {
-    public partial class FormArduinoUpload : Form, IUSBAddedOrRemoved
+    public partial class FormArduinoUpload : Form, IUSBAddedOrRemoved, IRS232Data
     {
         //class for handeling the notifycation
         // described in IUSBAddedOrRemoved
@@ -320,7 +320,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
                 bProsessingRS232Data = true;
 
-                this.txtSerialTerminal.AddString(serialPort1.ReadExisting());
+                //Send the RS232 incoming data the the plugins
+                sendRS232DataToThePlugins(serialPort1.ReadExisting());
 
                 bProsessingRS232Data = false;
             }
@@ -358,7 +359,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private void initPlugableComponents()
         {
 
-            //
+            //Load the form components
             loadPlugableComponents();
             
             //Scan for event interfaces
@@ -369,23 +370,24 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 {
                     IRS232Data rs232Interface = plugInForms as IRS232Data;
                     rs232Interface.OnDataRecieved += new EventHandler(pluginFormWanstTosendRS232Data);
+                    rs232Interface.iRS232Data = this;
                 }
             }
 
         }
 
+        //trigered when a plgin wants to send RS232 data
         void pluginFormWanstTosendRS232Data(object sender, EventArgs e)
         {
             RS232DataEventArgs rs232Data = e as RS232DataEventArgs;
-            toolStripStatusLabel1.Text = "RS232: " + rs232Data.RS232String;
+
+            //Debug only            
+            //toolStripStatusLabel1.Text = "RS232: " + rs232Data.RS232String;
 
             //chk if port is open if not then check if
             //--If serial port is available 
             if (serialPort1.IsOpen)
-            {
                 serialPort1.Write(rs232Data.RS232String);
-            }
-
         }
 
         private void Form_Load(object sender, EventArgs e)
@@ -424,7 +426,11 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             if (!comboBoxSerailPorts.Items.Contains(comPort))
                 comboBoxSerailPorts.Items.Add(comPort);
 
-            comboBoxSerailPorts.Text = comPort;            
+            comboBoxSerailPorts.Text = comPort;
+            
+            //Start the serial port so that the listening plugins
+            //could use it.
+            startSerialPort();
         }
 
         private void comboBoxSerailPorts_SelectedValueChanged(object sender, EventArgs e)
@@ -640,7 +646,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             panelMainPlugin.Controls.Add(newForm);
             newForm.Show();
             newForm.Dock = DockStyle.Fill;
-            newForm.BringToFront();
+            newForm.BringToFront();            
         }
 
         private void xPanderPanel1_Click(object sender, EventArgs e)
@@ -846,5 +852,52 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         }
 
 
+
+        #region IRS232Data Members
+
+//        public event EventHandler OnDataRecieved;
+        event EventHandler dataRecievedEvent;
+
+        object objectLock = new Object();
+
+        // Explicit interface implementation required.
+        // Associate IRS232Data's event with
+        // dataRecievedEvent
+        event EventHandler IRS232Data.OnDataRecieved
+        {
+            add
+            {
+                lock (objectLock)
+                {
+                    dataRecievedEvent += value;
+                }
+            }
+            remove
+            {
+                lock (objectLock)
+                {
+                    dataRecievedEvent -= value;
+                }
+            }
+        }
+
+        public void sendRS232DataToThePlugins(string data)
+        {
+            // Raise IRS232Data's event 
+            EventHandler handler = dataRecievedEvent;
+            if (handler != null)
+            {
+                handler(this, new RS232DataEventArgs() { RS232String = data });
+            }
+        }
+
+        //Not to be used by the parent
+        //This is only used by the parent (FormArduinoUpload.cs)
+        public IRS232Data iRS232Data
+        {
+            set { throw new NotImplementedException(); }
+        }
+
+        #endregion
     }
 }
