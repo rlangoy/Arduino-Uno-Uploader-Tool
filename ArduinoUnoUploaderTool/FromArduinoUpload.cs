@@ -1,5 +1,5 @@
 ﻿/*
-* Copyright (c) 2011 Rune Langøy
+* Copyright (c) 2011-2012 Rune Langøy
 * All rights reserved.
 *
 * Permission to use, copy, modify, and distribute this software for any
