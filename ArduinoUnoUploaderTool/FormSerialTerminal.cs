@@ -98,5 +98,10 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         }
 
         #endregion
+
+        private void FormSerialTerminal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

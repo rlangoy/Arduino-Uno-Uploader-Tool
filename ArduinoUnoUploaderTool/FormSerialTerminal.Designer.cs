@@ -189,6 +189,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.Controls.Add(this.panel3LinkXp2);
             this.Name = "FormSerialTerminal";
             this.Text = "FormSerialTerminal";
+            this.Load += new System.EventHandler(this.FormSerialTerminal_Load);
             this.panel3LinkXp2.ResumeLayout(false);
             this.panel3LinkXp2.PerformLayout();
             this.ResumeLayout(false);

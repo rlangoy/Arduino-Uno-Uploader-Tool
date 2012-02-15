@@ -342,8 +342,14 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             }
         }
 
+        List<Form> UploaderPluginForms = new List<Form>();
         private void Form_Load(object sender, EventArgs e)
         {
+            //Load the form components
+            UploaderPluginForms.Add(new FormIntro());
+            UploaderPluginForms.Add(new FormSerialTerminal());
+            UploaderPluginForms.Add(new FormConfiguration());
+            
             //Display Version Information
             Version version = new Version(Application.ProductVersion);
             this.Text += " "+version.Major+"."+version.Minor+"."+ version.Build ;
@@ -578,17 +584,9 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             panel3LinkXp2.Visible = false;
             panel3LinkXp3.Visible = false;
 
-            //Form to be displayed
-            Form newForm;
+            //Select the form to be displayed
+            Form newForm = UploaderPluginForms[panelNo-1];
             
-            //Select the for to be displayed
-            if (panelNo == 1)
-                newForm = new FormIntro();
-            else if (panelNo == 2)
-                newForm = new FormSerialTerminal();
-            else
-                newForm = new FormConfiguration();
-
             panelMainPlugin.Visible = true;
             newForm.TopLevel = false;
             //Remove the border
