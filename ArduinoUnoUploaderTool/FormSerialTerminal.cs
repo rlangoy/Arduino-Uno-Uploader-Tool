@@ -103,5 +103,21 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         {
 
         }
+
+        private void txtSerialTerminal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (chkSreialEcho.Checked == false)
+                e.Handled = true;
+            try
+            {
+                //Sends RS232 data if serialport is available
+                sendRS232Data(e.KeyChar.ToString());
+            }
+            catch (Exception ex)
+            {  //ToDO show error in status bar ;
+               //  toolStripStatusLabel1.Text = ex.ToString().Trim('\n'); ;  //<-- Needs to be implemented
+            };
+
+        }
     }
 }

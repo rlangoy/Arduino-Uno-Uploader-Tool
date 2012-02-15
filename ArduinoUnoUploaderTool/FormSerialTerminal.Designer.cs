@@ -48,9 +48,9 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panel3LinkXp2 = new BSE.Windows.Forms.Panel();
             this.chkSreialEcho = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.cmbSerialTerm = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.cmbSerial();
             this.chkWrapSerialData = new System.Windows.Forms.CheckBox();
             this.btCelarSerialTerminalWindow = new System.Windows.Forms.Button();
+            this.cmbSerialTerm = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.cmbSerial();
             this.txtSerialTerminal = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.textNormalView();
             this.panel3LinkXp2.SuspendLayout();
             this.SuspendLayout();
@@ -124,26 +124,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.label12.TabIndex = 16;
             this.label12.Text = "Baud Rate";
             // 
-            // cmbSerialTerm
-            // 
-            this.cmbSerialTerm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbSerialTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSerialTerm.FormattingEnabled = true;
-            this.cmbSerialTerm.Items.AddRange(new object[] {
-            "1200",
-            "2400",
-            "4800",
-            "9600",
-            "19200",
-            "38400",
-            "57600",
-            "115200"});
-            this.cmbSerialTerm.Location = new System.Drawing.Point(378, 345);
-            this.cmbSerialTerm.Name = "cmbSerialTerm";
-            this.cmbSerialTerm.Size = new System.Drawing.Size(69, 21);
-            this.cmbSerialTerm.TabIndex = 15;
-            this.cmbSerialTerm.SelectedIndexChanged += new System.EventHandler(this.cmbSerialTerm_SelectedIndexChanged);
-            // 
             // chkWrapSerialData
             // 
             this.chkWrapSerialData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -167,6 +147,26 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.btCelarSerialTerminalWindow.UseVisualStyleBackColor = true;
             this.btCelarSerialTerminalWindow.Click += new System.EventHandler(this.btCelarSerialTerminalWindow_Click);
             // 
+            // cmbSerialTerm
+            // 
+            this.cmbSerialTerm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbSerialTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSerialTerm.FormattingEnabled = true;
+            this.cmbSerialTerm.Items.AddRange(new object[] {
+            "1200",
+            "2400",
+            "4800",
+            "9600",
+            "19200",
+            "38400",
+            "57600",
+            "115200"});
+            this.cmbSerialTerm.Location = new System.Drawing.Point(378, 345);
+            this.cmbSerialTerm.Name = "cmbSerialTerm";
+            this.cmbSerialTerm.Size = new System.Drawing.Size(69, 21);
+            this.cmbSerialTerm.TabIndex = 15;
+            this.cmbSerialTerm.SelectedIndexChanged += new System.EventHandler(this.cmbSerialTerm_SelectedIndexChanged);
+            // 
             // txtSerialTerminal
             // 
             this.txtSerialTerminal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -180,6 +180,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.txtSerialTerminal.Size = new System.Drawing.Size(657, 296);
             this.txtSerialTerminal.TabIndex = 0;
             this.txtSerialTerminal.WrapText = false;
+            this.txtSerialTerminal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSerialTerminal_KeyPress);
             // 
             // FormSerialTerminal
             // 
