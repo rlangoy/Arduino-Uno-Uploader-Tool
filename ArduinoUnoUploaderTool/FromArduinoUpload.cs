@@ -342,14 +342,57 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             }
         }
 
+        //List for forms/plugable components
         List<Form> UploaderPluginForms = new List<Form>();
-        private void Form_Load(object sender, EventArgs e)
+
+        // Load the forms/plugable components        
+        private void loadPlugableComponents()
         {
             //Load the form components
             UploaderPluginForms.Add(new FormIntro());
             UploaderPluginForms.Add(new FormSerialTerminal());
             UploaderPluginForms.Add(new FormConfiguration());
+        }
+
+        //init forms/plugable components
+        private void initPlugableComponents()
+        {
+
+            //
+            loadPlugableComponents();
             
+            //Scan for event interfaces
+            foreach (object plugInForms in UploaderPluginForms)
+            {
+                //Check for Forms that want to send RS232 to the ucontroller
+                if (plugInForms is IRS232Data)
+                {
+                    IRS232Data rs232Interface = plugInForms as IRS232Data;
+                    rs232Interface.OnDataRecieved += new EventHandler(pluginFormWanstTosendRS232Data);
+                }
+            }
+
+        }
+
+        void pluginFormWanstTosendRS232Data(object sender, EventArgs e)
+        {
+            RS232DataEventArgs rs232Data = e as RS232DataEventArgs;
+            toolStripStatusLabel1.Text = "RS232: " + rs232Data.RS232String;
+
+            //chk if port is open if not then check if
+            //--If serial port is available 
+            if (serialPort1.IsOpen)
+            {
+                serialPort1.Write(rs232Data.RS232String);
+            }
+
+        }
+
+        private void Form_Load(object sender, EventArgs e)
+        {
+            //init the form components
+            initPlugableComponents();
+
             //Display Version Information
             Version version = new Version(Application.ProductVersion);
             this.Text += " "+version.Major+"."+version.Minor+"."+ version.Build ;
@@ -683,6 +726,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             ShowLinkedPanelNo(4);
         }
 
+        //Remove Later!! Implemented..
         private void txtSerialTerminal_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (chkSreialEcho.Checked == false)
