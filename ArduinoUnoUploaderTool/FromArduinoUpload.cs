@@ -792,14 +792,16 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         {
 
         }
-
+        
+        //Remove Later!! Implemented
         private void cmbSerialTerm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.baudRate = Convert.ToInt32(cmbSerialTerm.Text);
+/*            this.baudRate = Convert.ToInt32(cmbSerialTerm.Text);
             this.updateParams();
             if(serialPort1!=null)
                 if (serialPort1.IsOpen)
                 startSerialPort();
+ */
         }
 
         private void cmbSerialSpeedCfg_SelectedIndexChanged(object sender, EventArgs e)
@@ -898,6 +900,25 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             set { throw new NotImplementedException(); }
         }
 
+        //sets and gets the baud rate
+        public int BaudRate
+        {
+            get
+            {
+                return this.baudRate;
+            }
+            set
+            {               
+                this.baudRate = value;
+                this.updateParams();
+                if (serialPort1 != null)
+                    if (serialPort1.IsOpen)
+                        startSerialPort();
+            }
+        }
+
+
         #endregion
+
     }
 }

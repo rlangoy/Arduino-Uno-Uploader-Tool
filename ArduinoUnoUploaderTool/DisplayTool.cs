@@ -75,6 +75,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         // the object.
         event EventHandler OnDataRecieved;
         IRS232Data iRS232Data { set; }
+        int BaudRate { set; get; }
     }
 
 

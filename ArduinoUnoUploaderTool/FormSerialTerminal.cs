@@ -48,17 +48,13 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             txtSerialTerminal.Clear();
         }
 
+        //Notify parent abount the new baudrate
         private void cmbSerialTerm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            this.baudRate = Convert.ToInt32(cmbSerialTerm.Text);
-            this.updateParams();
-            if (serialPort1 != null)
-                if (serialPort1.IsOpen)
-                    startSerialPort();
-            */
+            if(this.parentIRS232DataInterface!=null)
+                this.parentIRS232DataInterface.BaudRate = Convert.ToInt32(cmbSerialTerm.Text);
+        }
 
-         }
         private IRS232Data parentIRS232DataInterface=null;
 
         #region IRS232Data Members
@@ -120,6 +116,20 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         }
 
 
+        public int BaudRate
+        {
+            get
+            {
+                return Convert.ToInt32(cmbSerialTerm.Text);
+            }
+            set
+            {
+                cmbSerialTerm.Text = value.ToString();
+            }
+        }
+
+
+
         #endregion
 
         private void FormSerialTerminal_Load(object sender, EventArgs e)
@@ -142,9 +152,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             };
 
         }
-
-
-
 
     }
 }
