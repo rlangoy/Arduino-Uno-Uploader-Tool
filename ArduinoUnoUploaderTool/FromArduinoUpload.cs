@@ -430,7 +430,13 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         {
             comPort = comboBoxSerailPorts.Text;
             updateParams();
-            chkIfComPortIsAvailable();             
+            chkIfComPortIsAvailable();
+            //Stop serial data if it is open and running
+            closeSerial();
+            //Start the serial port so that the listening plugins
+            //could use it.
+            startSerialPort();
+
         }
 
         private void textBoxHexFile_TextChanged(object sender, EventArgs e)
