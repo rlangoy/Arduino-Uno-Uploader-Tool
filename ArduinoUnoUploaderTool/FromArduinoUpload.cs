@@ -172,8 +172,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             textParams.Text = defParam;
             textBoxHexFile.Text = fileName;
             cmbSerialSpeedCfg.Text = baudRate.ToString();
-            chkUSBNotify.Checked = bUseUsbNotifycations;
-            cmbSerialTerm.Text = baudRate.ToString();
+            chkUSBNotify.Checked = bUseUsbNotifycations;            
             cmbSerialSpeedCfg.Text = baudRate.ToString();
             comboBoxSerailPorts.Text = comPort.ToString();        
         }
@@ -229,17 +228,9 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             }
                 
             if (ports.Contains(comPort) == true)
-            {
                 lbPortNotAvailable.Visible = false;
-                if (panel3LinkXp2.Visible == true)
-                {
-                    startSerialPort();
-                }
-            }
             else
-            {
                 lbPortNotAvailable.Visible = true;                
-            }
 
             return !lbPortNotAvailable.Visible;
         }
@@ -291,7 +282,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                         while (bClosingComPort) { System.Threading.Thread.Sleep(10); ;}
                     }
                 }
-                this.txtSerialTerminal.Text = "";
 
                 //Open New 
                 serialPort1 = new SerialPort(comPort, baudRate, Parity.None, 8, StopBits.One);
@@ -519,7 +509,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 {
                     this.closeSerial();
                     bSerialLineWasUsed = true;
-                    this.txtSerialTerminal.Text = "";
                 }
             }
 
@@ -633,7 +622,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private void ShowLinkedPanelNo(int panelNo)
         {
             toolStripStatusLabel1.Text = "";
-            panel3LinkXp2.Visible = false;
             panel3LinkXp3.Visible = false;
 
             //Select the form to be displayed
@@ -735,78 +723,14 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             ShowLinkedPanelNo(4);
         }
 
-        //Remove Later!! Implemented..
-        private void txtSerialTerminal_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (chkSreialEcho.Checked == false)
-                e.Handled = true;
-            try
-            {
-                //chk if port is open if not then check if
-                //--If serial port is available 
-                if (serialPort1.IsOpen)
-                {
-                    serialPort1.Write(e.KeyChar.ToString());
-                }
-            }
-            catch (Exception ex) 
-            {  //ToDO show error in status bar ;
-                toolStripStatusLabel1.Text = ex.ToString().Trim('\n'); ;
-            };
-        }
-
-        //Remove Later!! Implemented..
-        private void btCelarSerialTerminalWindow_Click(object sender, EventArgs e)
-        {
-            txtSerialTerminal.Clear();
-        }
-
-        private void panel3LinkXp2_VisibleChanged(object sender, EventArgs e)
-        {
-            if (chkIfComPortIsAvailable() == false)
-            {
-                //MessageBox.Show("COM-port is not Available\nPlease select another COM-port", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                toolStripStatusLabel1.Text = "COM-port is not Available - Please select another COM-port";
-                return;
-            }
 
 
-            if (panel3LinkXp2.Visible == true)
-            {                
-                startSerialPort();
-                
-            }
-            else
-            {
-                closeSerial();
-                toolStripStatusLabel1.Text = "";
-                this.txtSerialTerminal.Text = ""; //clear recieved RS232 data
-            
-            }
-        }
-
-        //Remove Later!! Implemented..
-        private void chkWrapSerialData_CheckedChanged(object sender, EventArgs e)
-        {
-            this.txtSerialTerminal.WrapText = chkWrapSerialData.Checked;
-        }
 
         private void label11_Click(object sender, EventArgs e)
         {
 
         }
         
-        //Remove Later!! Implemented
-        private void cmbSerialTerm_SelectedIndexChanged(object sender, EventArgs e)
-        {
-/*            this.baudRate = Convert.ToInt32(cmbSerialTerm.Text);
-            this.updateParams();
-            if(serialPort1!=null)
-                if (serialPort1.IsOpen)
-                startSerialPort();
- */
-        }
-
         private void cmbSerialSpeedCfg_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.baudRate = Convert.ToInt32(cmbSerialSpeedCfg.Text);
@@ -816,12 +740,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 if(serialPort1.IsOpen)
                     startSerialPort();
                 
-        }
-
-        //Remove Later!! Implemented..
-        private void chkSreialEcho_CheckedChanged(object sender, EventArgs e)
-        {
-            txtSerialTerminal.Focus();
         }
 
 
