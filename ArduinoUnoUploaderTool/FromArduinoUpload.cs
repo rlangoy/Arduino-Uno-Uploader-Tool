@@ -34,7 +34,7 @@ using System.Threading;
 
 namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 {
-    public partial class FormArduinoUpload : Form, IUSBAddedOrRemoved, IRS232Data
+    public partial class FormArduinoUpload : Form, IUSBAddedOrRemoved, IRS232Data, IWriteConfig
     {
         //class for handeling the notifycation
         // described in IUSBAddedOrRemoved
@@ -847,5 +847,24 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
         #endregion
 
+
+        #region IWriteConfig Members
+        private List<ConfigStorage> lstConfigStorage;
+        public List<ConfigStorage> LstConfigStorage
+        {
+            set { lstConfigStorage=value; }           
+        }
+
+        public void WriteConfig()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateConfig()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 }

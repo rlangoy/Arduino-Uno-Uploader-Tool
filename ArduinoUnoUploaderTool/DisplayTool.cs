@@ -69,6 +69,29 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         public string RS232String;
     }
 
+    /*
+                 inifile.Write("Config", "bUseUsbNotifycations", bUseUsbNotifycations.ToString());
+            inifile.Write("Config", "comPort", comPort);
+            inifile.Write("Config", "fileName", fileName);
+            inifile.Write("Config", "arduinoUnoParamsVer5", arduinoUnoParams);
+            inifile.Write("Config", "SerialTerminalSpeed", baudRate.ToString());
+
+     */
+
+    public class ConfigStorage
+    {
+        public string Section;
+        public string Parameter;
+        public string Value;
+    }
+
+    public interface IWriteConfig
+    {
+        List<ConfigStorage> LstConfigStorage{ set; }
+        void WriteConfig();
+        void UpdateConfig();
+    }
+
     public interface IRS232Data
     {
         // Raise this event before drawing

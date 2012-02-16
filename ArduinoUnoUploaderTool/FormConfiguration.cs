@@ -26,11 +26,36 @@ using System.Windows.Forms;
 
 namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 {
-    public partial class FormConfiguration : Form
+    public partial class FormConfiguration : Form, IWriteConfig
     {
         public FormConfiguration()
         {
             InitializeComponent();
         }
+
+        private void FormConfiguration_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        #region IWriteConfig Members
+
+        private List<ConfigStorage> lstConfigStorage;
+        public List<ConfigStorage> LstConfigStorage
+        {
+            set { lstConfigStorage=value; }
+        }
+
+        public void WriteConfig()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateConfig()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 }

@@ -341,6 +341,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.Controls.Add(this.panel3LinkXp3);
             this.Name = "FormConfiguration";
             this.Text = "FormConfiguration";
+            this.Load += new System.EventHandler(this.FormConfiguration_Load);
             this.panel3LinkXp3.ResumeLayout(false);
             this.panel3LinkXp3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
