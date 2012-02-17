@@ -41,7 +41,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         #region IWriteConfig Members
 
         private List<ConfigStorage> lstConfigStorage;
-        public List<ConfigStorage> LstConfigStorage
+        public List<ConfigStorage>  LstConfigStorage
         {
             set { lstConfigStorage=value; }
         }

@@ -180,7 +180,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         // Store configuration
         private void WriteConfigToFile()
         {
-            ReadWriteInitFile inifile = new ReadWriteInitFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\config.ini");
+            ReadWriteInitFile inifile = new ReadWriteInitFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\config.ini",this.lstConfigStorage);
             inifile.Write("Config", "bUseUsbNotifycations", bUseUsbNotifycations.ToString());
             inifile.Write("Config", "comPort", comPort);
             inifile.Write("Config", "fileName", fileName);
@@ -191,7 +191,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         // Read configuration
         private void ReadConfigToFile()
         {
-            ReadWriteInitFile inifile = new ReadWriteInitFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\config.ini");
+            ReadWriteInitFile inifile = new ReadWriteInitFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\config.ini",this.lstConfigStorage);
 
             string readString = inifile.Read("Config", "comPort");
             if (readString.Length > 0)
@@ -212,6 +212,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             readString = inifile.Read("Config", "SerialTerminalSpeed");
             if (readString.Length > 0)
                 baudRate = Convert.ToInt32(readString);  
+
+            
 
         }
 
@@ -849,8 +851,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
 
         #region IWriteConfig Members
-        private List<ConfigStorage> lstConfigStorage;
-        public List<ConfigStorage> LstConfigStorage
+        private List<ConfigStorage> lstConfigStorage = new List<ConfigStorage>();
+        public  List<ConfigStorage> LstConfigStorage
         {
             set { lstConfigStorage=value; }           
         }

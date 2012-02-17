@@ -52,20 +52,24 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         int size,
         string filePath);
 
-        public ReadWriteInitFile(string filePath)
+        private List<ConfigStorage> lstConfigStorage;
+
+        public ReadWriteInitFile(string filePath, List<ConfigStorage> lstConfigStorage)
         {
             this.filePath = filePath;
+            this.lstConfigStorage = lstConfigStorage;
         }
 
         public void Write(string section, string key, string value)
         {
-            WritePrivateProfileString(section, key, value, this.filePath);
+            WritePrivateProfileString(section, key, value, this.filePath);            
         }
 
         public string Read(string section, string key)
         {
             StringBuilder SB = new StringBuilder(255);
             int i = GetPrivateProfileString(section, key, "", SB, 255, this.filePath);
+            lstConfigStorage.Add(new ConfigStorage() { Section = section, Parameter = key, Value = SB.ToString() });
             return SB.ToString();
         }
 
