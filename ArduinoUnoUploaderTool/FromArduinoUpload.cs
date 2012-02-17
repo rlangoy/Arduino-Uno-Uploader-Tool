@@ -818,7 +818,24 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
         public void WriteConfig()
         {
-            throw new NotImplementedException();            
+            //Update private vars
+            foreach (ConfigStorage config in lstConfigStorage)
+            {
+                if (config.Section.ToLower().CompareTo("config") == 0)
+                {
+                    if (config.Parameter.ToLower().CompareTo("arduinounoparamsver5") == 0)
+                        arduinoUnoParams = config.Value;
+                        
+                    if (config.Parameter.ToLower().CompareTo("buseusbnotifycations") == 0)
+                        bUseUsbNotifycations = Convert.ToBoolean(config.Value);
+
+                    if (config.Parameter.ToLower().CompareTo("serialterminalspeed") == 0)
+                        baudRate = Convert.ToInt32(config.Value);
+
+                }
+            }
+            //Write the new parameters to disk
+            WriteConfigToFile();
         }
 
         public void UpdateConfig()

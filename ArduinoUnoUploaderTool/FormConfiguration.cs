@@ -57,8 +57,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             foreach (ConfigStorage config in lstConfigStorage)
             {
                 if (config.Section.ToLower().CompareTo("config") == 0)
-                {
-                    
+                {                    
                     if (config.Parameter.ToLower().CompareTo("arduinounoparamsver5") == 0)
                         textBoxArduinoUnoParamsVer5.Text = config.Value;
 
@@ -70,8 +69,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                     
                 }
             }
-        
-
         }
 
         #endregion
@@ -170,6 +167,24 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         {
             if (this.parentInterface is IWriteConfig)
             {
+
+                //Update parameter list before sending
+                foreach (ConfigStorage config in lstConfigStorage)
+                {
+                    if (config.Section.ToLower().CompareTo("config") == 0)
+                    {
+                        if (config.Parameter.ToLower().CompareTo("arduinounoparamsver5") == 0)
+                            config.Value = textBoxArduinoUnoParamsVer5.Text;
+
+                        if (config.Parameter.ToLower().CompareTo("buseusbnotifycations") == 0)
+                            config.Value = chkUSBNotify.Checked.ToString();
+
+                        if (config.Parameter.ToLower().CompareTo("serialterminalspeed") == 0)
+                            config.Value = cmbSerialSpeedCfg.Text;
+
+                    }
+                }
+
                 IWriteConfig wConfig = parentInterface as IWriteConfig;
                 wConfig.WriteConfig();
             }            
