@@ -212,9 +212,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             readString = inifile.Read("Config", "SerialTerminalSpeed");
             if (readString.Length > 0)
                 baudRate = Convert.ToInt32(readString);  
-
-            
-
         }
 
 
@@ -364,6 +361,12 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                     rs232Interface.OnDataRecieved += new EventHandler(pluginFormWanstTosendRS232Data);
                     rs232Interface.iRS232Data = this;
                     rs232Interface.BaudRate = this.baudRate;
+                }
+
+                if (plugInForms is IWriteConfig)
+                {
+                    IWriteConfig writeConfig = plugInForms as IWriteConfig;
+                    writeConfig.LstConfigStorage = this.lstConfigStorage;  //tansfer the configuration list
                 }
             }
 
