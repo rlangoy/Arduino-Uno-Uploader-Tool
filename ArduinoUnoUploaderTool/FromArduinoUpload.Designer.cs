@@ -487,7 +487,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.cmbSerialUploadSpeed.Name = "cmbSerialUploadSpeed";
             this.cmbSerialUploadSpeed.Size = new System.Drawing.Size(69, 21);
             this.cmbSerialUploadSpeed.TabIndex = 13;
-            this.cmbSerialUploadSpeed.SelectedIndexChanged += new System.EventHandler(this.cmbSerialUploadSpeed_SelectedIndexChanged);
             // 
             // textBoxArduinoUnoParamsVer5
             // 
