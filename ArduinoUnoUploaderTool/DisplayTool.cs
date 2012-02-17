@@ -50,8 +50,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
         }
 
-
-
     }
 
     class textHexView : System.Windows.Forms.TextBox
@@ -68,15 +66,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
     {
         public string RS232String;
     }
-
-    /*
-                 inifile.Write("Config", "bUseUsbNotifycations", bUseUsbNotifycations.ToString());
-            inifile.Write("Config", "comPort", comPort);
-            inifile.Write("Config", "fileName", fileName);
-            inifile.Write("Config", "arduinoUnoParamsVer5", arduinoUnoParams);
-            inifile.Write("Config", "SerialTerminalSpeed", baudRate.ToString());
-
-     */
 
     public class ConfigStorage
     {
@@ -104,7 +93,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
     class textNormalView : System.Windows.Forms.TextBox
     {
-
         private int linesShown;
         public textNormalView()
         {
@@ -141,10 +129,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             }
 
             this.AppendText( strInput );
-           
-
         }
-
 
     }
 }
