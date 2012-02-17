@@ -48,6 +48,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panel3LinkXp3 = new BSE.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.cmbSerialUploadSpeed = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.cmbSerial();
             this.textBoxArduinoUnoParamsVer5 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textParams = new System.Windows.Forms.TextBox();
@@ -63,7 +64,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmbSerialUploadSpeed = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.cmbSerial();
             this.cmbSerialSpeedCfg = new HIVE.TEKMAR.ITEK.ArduinoUnoToolGui.cmbSerial();
             this.panel3LinkXp3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -141,6 +141,27 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.label13.TabIndex = 14;
             this.label13.Text = "Baud Rate";
             // 
+            // cmbSerialUploadSpeed
+            // 
+            this.cmbSerialUploadSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbSerialUploadSpeed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSerialUploadSpeed.FormattingEnabled = true;
+            this.cmbSerialUploadSpeed.Items.AddRange(new object[] {
+            "1200",
+            "2400",
+            "4800",
+            "9600",
+            "19200",
+            "38400",
+            "57600",
+            "115200",
+            ""});
+            this.cmbSerialUploadSpeed.Location = new System.Drawing.Point(383, 32);
+            this.cmbSerialUploadSpeed.Name = "cmbSerialUploadSpeed";
+            this.cmbSerialUploadSpeed.Size = new System.Drawing.Size(69, 21);
+            this.cmbSerialUploadSpeed.TabIndex = 13;
+            this.cmbSerialUploadSpeed.SelectedIndexChanged += new System.EventHandler(this.cmbSerialUploadSpeed_SelectedIndexChanged);
+            // 
             // textBoxArduinoUnoParamsVer5
             // 
             this.textBoxArduinoUnoParamsVer5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -181,6 +202,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.btCinfigDefault.TabIndex = 7;
             this.btCinfigDefault.Text = "Default";
             this.btCinfigDefault.UseVisualStyleBackColor = true;
+            this.btCinfigDefault.Click += new System.EventHandler(this.btCinfigDefault_Click);
             // 
             // label2
             // 
@@ -296,27 +318,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "Baud Rate";
-            // 
-            // cmbSerialUploadSpeed
-            // 
-            this.cmbSerialUploadSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbSerialUploadSpeed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSerialUploadSpeed.FormattingEnabled = true;
-            this.cmbSerialUploadSpeed.Items.AddRange(new object[] {
-            "1200",
-            "2400",
-            "4800",
-            "9600",
-            "19200",
-            "38400",
-            "57600",
-            "115200",
-            ""});
-            this.cmbSerialUploadSpeed.Location = new System.Drawing.Point(383, 32);
-            this.cmbSerialUploadSpeed.Name = "cmbSerialUploadSpeed";
-            this.cmbSerialUploadSpeed.Size = new System.Drawing.Size(69, 21);
-            this.cmbSerialUploadSpeed.TabIndex = 13;
-            this.cmbSerialUploadSpeed.SelectedIndexChanged += new System.EventHandler(this.cmbSerialUploadSpeed_SelectedIndexChanged);
             // 
             // cmbSerialSpeedCfg
             // 

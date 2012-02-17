@@ -189,5 +189,34 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 wConfig.WriteConfig();
             }            
         }
+
+
+        private void restoreDefaultConfigParams()
+        {
+            //Update parameter list width default params
+            foreach (ConfigStorage config in lstConfigStorage)
+            {
+                if (config.Section.ToLower().CompareTo("config") == 0)
+                {
+                    if (config.Parameter.ToLower().CompareTo("arduinounoparamsver5") == 0)
+                        config.Value = "-F -v -pm328p -c arduino -b 115200";
+
+                    if (config.Parameter.ToLower().CompareTo("buseusbnotifycations") == 0)
+                        config.Value = "true";
+
+                    if (config.Parameter.ToLower().CompareTo("serialterminalspeed") == 0)
+                        config.Value = "19200";
+                }
+            }
+
+            //Update display
+            UpdateConfig();
+        }
+
+
+        private void btCinfigDefault_Click(object sender, EventArgs e)
+        {
+            restoreDefaultConfigParams();
+        }
     }
 }
