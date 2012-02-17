@@ -33,9 +33,10 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             InitializeComponent();
         }
 
+
         private void FormConfiguration_Load(object sender, EventArgs e)
         {
-
+            UpdateConfig();
         }
 
         #region IWriteConfig Members
@@ -51,9 +52,40 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             throw new NotImplementedException();
         }
 
+        /*
+         
+
+
+
+
+            readString = inifile.Read("Config", "SerialTerminalSpeed");
+            if (readString.Length > 0)
+                baudRate = Convert.ToInt32(readString);  
+
+         
+         */
+
+
         public void UpdateConfig()
         {
-            throw new NotImplementedException();
+            foreach (ConfigStorage config in lstConfigStorage)
+            {
+                if (config.Section.ToLower().CompareTo("config") == 0)
+                {
+                    
+                    if (config.Parameter.ToLower().CompareTo("arduinounoparamsver5") == 0)
+                        textBoxArduinoUnoParamsVer5.Text = config.Value;
+
+                    if (config.Parameter.ToLower().CompareTo("buseusbnotifycations") == 0)
+                        chkUSBNotify.Checked = Convert.ToBoolean(config.Value);
+
+                    if (config.Parameter.ToLower().CompareTo("serialterminalspeed") == 0)
+                        cmbSerialSpeedCfg.Text = config.Value;
+                    
+                }
+            }
+        
+
         }
 
         #endregion
