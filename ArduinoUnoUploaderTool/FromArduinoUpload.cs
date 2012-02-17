@@ -34,7 +34,7 @@ using System.Threading;
 
 namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 {
-    public partial class FormArduinoUpload : Form, IUSBAddedOrRemoved, IRS232Data, IWriteConfig
+    public partial class FormArduinoUpload : Form, IUSBAddedOrRemoved, Iparent   //IRS232Data, IWriteConfig
     {
         //class for handeling the notifycation
         // described in IUSBAddedOrRemoved
@@ -369,7 +369,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 {
                     IRS232Data rs232Interface = plugInForms as IRS232Data;
                     try { rs232Interface.OnDataRecieved += new EventHandler(pluginFormWanstTosendRS232Data); }
-                    catch (NotImplementedException e) { ;}
+                    catch (NotImplementedException) { ;}
                     rs232Interface.iRS232Data = this;
                     rs232Interface.BaudRate = this.baudRate;
                 }
@@ -818,7 +818,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
         public void WriteConfig()
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException();            
         }
 
         public void UpdateConfig()

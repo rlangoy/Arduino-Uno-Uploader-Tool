@@ -90,6 +90,9 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         int BaudRate { set; get; }
     }
 
+    public interface Iparent : IRS232Data, IWriteConfig 
+    {
+    }
 
     class textNormalView : System.Windows.Forms.TextBox
     {

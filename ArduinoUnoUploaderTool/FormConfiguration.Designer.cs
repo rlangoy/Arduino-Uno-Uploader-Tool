@@ -211,6 +211,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.btConfigSave.TabIndex = 4;
             this.btConfigSave.Text = "Save";
             this.btConfigSave.UseVisualStyleBackColor = true;
+            this.btConfigSave.Click += new System.EventHandler(this.btConfigSave_Click);
             // 
             // groupBox2
             // 

@@ -146,7 +146,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 //Sends RS232 data if serialport is available
                 sendRS232Data(e.KeyChar.ToString());
             }
-            catch (Exception ex)
+            catch (Exception)
             {  //ToDO show error in status bar ;
                //  toolStripStatusLabel1.Text = ex.ToString().Trim('\n'); ;  //<-- Needs to be implemented
             };

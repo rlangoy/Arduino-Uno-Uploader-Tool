@@ -130,20 +130,25 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
         private void cmbSerialSpeedCfg_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.parentIRS232DataInterface != null)
-                this.parentIRS232DataInterface.BaudRate = Convert.ToInt32(this.cmbSerialSpeedCfg.Text);
-
+            if(parentInterface is IRS232Data )
+            {
+                IRS232Data parentIRS232DataInterface= parentInterface as IRS232Data; 
+                if (parentIRS232DataInterface != null)
+                    parentIRS232DataInterface.BaudRate = Convert.ToInt32(this.cmbSerialSpeedCfg.Text);
+            
+            }
         }
 
         #region IRS232Data Members
 
-        public event EventHandler OnDataRecieved;
+        public event EventHandler OnDataRecieved=null;
 
-        private IRS232Data parentIRS232DataInterface = null;
+        private Iparent parentInterface = null;
         public IRS232Data iRS232Data
         {
-            set 
-            {   parentIRS232DataInterface = value;
+            set
+            {
+                parentInterface = value as Iparent;
             }
         }
 
@@ -160,5 +165,14 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         }
 
         #endregion
+
+        private void btConfigSave_Click(object sender, EventArgs e)
+        {
+            if (this.parentInterface is IWriteConfig)
+            {
+                IWriteConfig wConfig = parentInterface as IWriteConfig;
+                wConfig.WriteConfig();
+            }            
+        }
     }
 }
