@@ -334,6 +334,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.cmbSerialSpeedCfg.Name = "cmbSerialSpeedCfg";
             this.cmbSerialSpeedCfg.Size = new System.Drawing.Size(69, 21);
             this.cmbSerialSpeedCfg.TabIndex = 5;
+            this.cmbSerialSpeedCfg.SelectedIndexChanged += new System.EventHandler(this.cmbSerialSpeedCfg_SelectedIndexChanged);
             // 
             // FormConfiguration
             // 

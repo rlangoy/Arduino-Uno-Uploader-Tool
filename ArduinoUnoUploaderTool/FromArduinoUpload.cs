@@ -173,8 +173,18 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             textBoxHexFile.Text = fileName;
             cmbSerialSpeedCfg.Text = baudRate.ToString();
             chkUSBNotify.Checked = bUseUsbNotifycations;            
-            cmbSerialSpeedCfg.Text = baudRate.ToString();
-            comboBoxSerailPorts.Text = comPort.ToString();        
+            comboBoxSerailPorts.Text = comPort.ToString();
+
+            //Update params in other components
+            foreach (object plugInForms in UploaderPluginForms)
+            {
+                //Check for Forms that want to send RS232 to the ucontroller
+                if (plugInForms is IRS232Data)
+                {
+                    IRS232Data rs232Interface = plugInForms as IRS232Data;
+                    rs232Interface.BaudRate = this.baudRate;
+                }
+            }
         }
 
         // Store configuration
@@ -358,7 +368,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 if (plugInForms is IRS232Data)
                 {
                     IRS232Data rs232Interface = plugInForms as IRS232Data;
-                    rs232Interface.OnDataRecieved += new EventHandler(pluginFormWanstTosendRS232Data);
+                    try { rs232Interface.OnDataRecieved += new EventHandler(pluginFormWanstTosendRS232Data); }
+                    catch (NotImplementedException e) { ;}
                     rs232Interface.iRS232Data = this;
                     rs232Interface.BaudRate = this.baudRate;
                 }

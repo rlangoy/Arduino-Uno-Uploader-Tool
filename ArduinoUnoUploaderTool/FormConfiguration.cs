@@ -26,7 +26,7 @@ using System.Windows.Forms;
 
 namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 {
-    public partial class FormConfiguration : Form, IWriteConfig
+    public partial class FormConfiguration : Form, IWriteConfig,IRS232Data
     {
         public FormConfiguration()
         {
@@ -127,5 +127,38 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 }
             }
         }
+
+        private void cmbSerialSpeedCfg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.parentIRS232DataInterface != null)
+                this.parentIRS232DataInterface.BaudRate = Convert.ToInt32(this.cmbSerialSpeedCfg.Text);
+
+        }
+
+        #region IRS232Data Members
+
+        public event EventHandler OnDataRecieved;
+
+        private IRS232Data parentIRS232DataInterface = null;
+        public IRS232Data iRS232Data
+        {
+            set 
+            {   parentIRS232DataInterface = value;
+            }
+        }
+
+        public int BaudRate
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                cmbSerialSpeedCfg.Text = value.ToString();
+            }
+        }
+
+        #endregion
     }
 }

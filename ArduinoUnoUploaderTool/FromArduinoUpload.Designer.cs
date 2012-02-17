@@ -425,7 +425,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.panel3LinkXp3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel3LinkXp3.Image = null;
             this.panel3LinkXp3.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.panel3LinkXp3.Location = new System.Drawing.Point(285, 43);
+            this.panel3LinkXp3.Location = new System.Drawing.Point(27, 28);
             this.panel3LinkXp3.MinimumSize = new System.Drawing.Size(27, 27);
             this.panel3LinkXp3.Name = "panel3LinkXp3";
             this.panel3LinkXp3.PanelStyle = BSE.Windows.Forms.PanelStyle.Default;
