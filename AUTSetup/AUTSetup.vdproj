@@ -39,6 +39,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9EE6B2CB2633735CBAE7408FFFE8D13A"
+        "OwnerKey" = "8:_C1DD264334044075AF6B186A20E12D0D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A4495ABD9BFF4711B4B2172D272136B6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -75,12 +81,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E18B82F7F6734990E4B5EE7DFDCBB2C7"
-        "OwnerKey" = "8:_C1DD264334044075AF6B186A20E12D0D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_C1DD264334044075AF6B186A20E12D0D"
         "MsmSig" = "8:_UNDEFINED"
@@ -88,7 +88,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E18B82F7F6734990E4B5EE7DFDCBB2C7"
+        "OwnerKey" = "8:_9EE6B2CB2633735CBAE7408FFFE8D13A"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -276,6 +276,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9EE6B2CB2633735CBAE7408FFFE8D13A"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:BSE.Windows.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_9EE6B2CB2633735CBAE7408FFFE8D13A"
+                    {
+                    "Name" = "8:BSE.Windows.Forms.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:BSE.Windows.Forms.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BD9905C83B5C4526811FB661907B2519"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A4495ABD9BFF4711B4B2172D272136B6"
             {
             "SourcePath" = "8:..\\AvrDudeFiles\\driver_installation.ico"
@@ -376,32 +407,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E18B82F7F6734990E4B5EE7DFDCBB2C7"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSE.Windows.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:BSE.Windows.Forms.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_BD9905C83B5C4526811FB661907B2519"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -493,14 +498,14 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Arduino UNO Uploader Tool "
         "ProductCode" = "8:{E8A7A14B-918A-484A-903E-028844CDFD1A}"
-        "PackageCode" = "8:{6FF06771-A3AA-4667-82BF-F7197D6370A6}"
+        "PackageCode" = "8:{5E301A4C-F33E-4E9F-A4D7-D3095843C1AA}"
         "UpgradeCode" = "8:{4743626B-2B13-4BBB-BD58-C3910391C22F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.1.8"
+        "ProductVersion" = "8:1.2.1"
         "Manufacturer" = "8:VUC"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -1056,7 +1061,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C1DD264334044075AF6B186A20E12D0D"
             {
-            "SourcePath" = "8:..\\ArduinoUnoUploaderTool\\obj\\x86\\Release\\ArduinoUnoUploaderTool.exe"
+            "SourcePath" = "8:..\\ArduinoUnoUploaderTool\\obj\\x86\\Debug\\ArduinoUnoUploaderTool.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BD9905C83B5C4526811FB661907B2519"
