@@ -52,20 +52,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             throw new NotImplementedException();
         }
 
-        /*
-         
-
-
-
-
-            readString = inifile.Read("Config", "SerialTerminalSpeed");
-            if (readString.Length > 0)
-                baudRate = Convert.ToInt32(readString);  
-
-         
-         */
-
-
         public void UpdateConfig()
         {
             foreach (ConfigStorage config in lstConfigStorage)
@@ -89,5 +75,57 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         }
 
         #endregion
+
+        //Update the AvrDude argument string
+        private void UpdateAvrDudeParameterString()
+        {
+            //Return if not a valid baud rate (set manualy in textbox)
+            if (cmbSerialUploadSpeed.Text.Length == 0)
+                return;
+
+            string[] args = this.textBoxArduinoUnoParamsVer5.Text.Split('-');
+            string newArgs = "";
+
+            foreach (string param in args)
+            {
+                if (param.Length > 0)
+                {
+                    if (param[0] == 'b')
+                        newArgs += "-b " + cmbSerialUploadSpeed.Text;
+                    else
+                        newArgs += "-" + param;
+                }
+            }
+
+            this.textBoxArduinoUnoParamsVer5.Text = newArgs;
+        }
+
+        //Baudrate changed by using the coombobox 
+        private void cmbSerialUploadSpeed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Make av new AVRDude parameter string 
+            UpdateAvrDudeParameterString();
+        }
+
+        private void textBoxArduinoUnoParamsVer5_TextChanged(object sender, EventArgs e)
+        {
+            string[] args = this.textBoxArduinoUnoParamsVer5.Text.Split('-');
+
+            foreach (string param in args)
+            {
+                if (param.Length > 0)
+                {
+                    if (param[0] == 'b')
+                    {
+                        cmbSerialUploadSpeed.Text = param.Substring(1).Trim();
+                        if (cmbSerialUploadSpeed.Text != param.Substring(1).Trim())
+                        {
+                            cmbSerialUploadSpeed.Text = "";
+                        }
+
+                    }
+                }
+            }
+        }
     }
 }
