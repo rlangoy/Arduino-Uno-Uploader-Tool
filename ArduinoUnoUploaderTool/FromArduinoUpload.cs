@@ -169,10 +169,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private void updateParams()
         {
             string defParam = arduinoUnoParams + " -P\\\\.\\" + comPort + " -D -Uflash:w:\"" + fileName + "\":i";
-            textParams.Text = defParam;
             textBoxHexFile.Text = fileName;
-            cmbSerialSpeedCfg.Text = baudRate.ToString();
-            chkUSBNotify.Checked = bUseUsbNotifycations;            
             comboBoxSerailPorts.Text = comPort.ToString();
 
             //Update params in other components
@@ -397,6 +394,28 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 serialPort1.Write(rs232Data.RS232String);
         }
 
+        private void UpdatePluginParameters()
+        {
+            //Update private vars
+            foreach (ConfigStorage config in lstConfigStorage)
+            {
+                if (config.Section.ToLower().CompareTo("config") == 0)
+                {
+                    if (config.Parameter.ToLower().CompareTo("arduinounoparamsver5") == 0)
+                        arduinoUnoParams = config.Value;
+
+                    if (config.Parameter.ToLower().CompareTo("buseusbnotifycations") == 0)
+                        bUseUsbNotifycations = Convert.ToBoolean(config.Value);
+
+                    if (config.Parameter.ToLower().CompareTo("serialterminalspeed") == 0)
+                        baudRate = Convert.ToInt32(config.Value);
+
+                }
+            }
+        }               
+
+
+
         private void Form_Load(object sender, EventArgs e)
         {
 
@@ -425,7 +444,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             chkIfComPortIsAvailable();
 
             ShowLinkedPanelNo(1);
-            textBoxArduinoUnoParamsVer5.Text = this.arduinoUnoParams;
             toolStripStatusLabel1.Text = "Ready";
 
             comboBoxSerailPorts.Items.Clear();
@@ -553,6 +571,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 return;            
             }
 
+            //Get updates form the plugins
+            UpdatePluginParameters();
 
             Process p = null;
             try
@@ -561,7 +581,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 p = new Process();
                 p.StartInfo.FileName = AVRDudeFileNameAndLocation;
 
-                p.StartInfo.Arguments = textParams.Text;
+                p.StartInfo.Arguments = arduinoUnoParams;
                 p.StartInfo.CreateNoWindow = false;
                 p.Start();
                 p.WaitForExit();
@@ -644,7 +664,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private void ShowLinkedPanelNo(int panelNo)
         {
             toolStripStatusLabel1.Text = "";
-            panel3LinkXp3.Visible = false;
 
             //Select the form to be displayed
             Form newForm = UploaderPluginForms[panelNo-1];
@@ -675,73 +694,24 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private void xPanderPanel3_Click(object sender, EventArgs e)
         {
             ShowLinkedPanelNo(3);
-            textBoxArduinoUnoParamsVer5.Text = this.arduinoUnoParams;
         }
 
         private void panel3LinkXp3_CloseClick(object sender, EventArgs e)
-        {
-            textBoxArduinoUnoParamsVer5.Text=this.arduinoUnoParams;
-        }
-
-        private void textBoxArduinoUnoParamsVer5_TextChanged(object sender, EventArgs e)
-        {
-        }
+        {}
 
         private void panel3LinkXp3_VisibleChanged(object sender, EventArgs e)
-        {            
-            
-        }
-
-        private void btCinfigDefault_Click(object sender, EventArgs e)
-        {
-            restoreDefaultConfigParams();
-            textBoxArduinoUnoParamsVer5.Text = this.arduinoUnoParams;
-            updateParams(); //Show changes
-        }
+        {}
 
         private void xPanderPanel3_Enter(object sender, EventArgs e)
-        {
-        }
+        {}
 
-        private void btConfigSave_Click(object sender, EventArgs e)
-        {
-            WriteConfigToFile();
-        }
 
-        private void chkUSBNotify_CheckedChanged(object sender, EventArgs e)
-        {
-            this.bUseUsbNotifycations = chkUSBNotify.Checked;
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void xPanderPanel4_Click(object sender, EventArgs e)
         {            
             ShowLinkedPanelNo(4);
         }
 
-
-
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-        
-        private void cmbSerialSpeedCfg_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.baudRate = Convert.ToInt32(cmbSerialSpeedCfg.Text);
-            this.updateParams();
-
-            if (serialPort1!=null)
-                if(serialPort1.IsOpen)
-                    startSerialPort();
-                
-        }
-        
 
         #region IRS232Data Members
 
@@ -818,22 +788,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
         public void WriteConfig()
         {
-            //Update private vars
-            foreach (ConfigStorage config in lstConfigStorage)
-            {
-                if (config.Section.ToLower().CompareTo("config") == 0)
-                {
-                    if (config.Parameter.ToLower().CompareTo("arduinounoparamsver5") == 0)
-                        arduinoUnoParams = config.Value;
-                        
-                    if (config.Parameter.ToLower().CompareTo("buseusbnotifycations") == 0)
-                        bUseUsbNotifycations = Convert.ToBoolean(config.Value);
-
-                    if (config.Parameter.ToLower().CompareTo("serialterminalspeed") == 0)
-                        baudRate = Convert.ToInt32(config.Value);
-
-                }
-            }
+            //Update Vars()
+            UpdatePluginParameters();
             //Write the new parameters to disk
             WriteConfigToFile();
         }

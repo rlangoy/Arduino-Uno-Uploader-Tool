@@ -34,9 +34,50 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         }
 
 
+        public void UpdateConfigDisplay()
+        {
+            if (lstConfigStorage != null)
+                foreach (ConfigStorage config in lstConfigStorage)
+                {
+                    if (config.Section.ToLower().CompareTo("config") == 0)
+                    {
+                        if (config.Parameter.ToLower().CompareTo("arduinounoparamsver5") == 0)
+                            textBoxArduinoUnoParamsVer5.Text = config.Value;
+
+                        if (config.Parameter.ToLower().CompareTo("buseusbnotifycations") == 0)
+                            chkUSBNotify.Checked = Convert.ToBoolean(config.Value);
+
+                        if (config.Parameter.ToLower().CompareTo("serialterminalspeed") == 0)
+                            cmbSerialSpeedCfg.Text = config.Value;
+
+                    }
+                }
+        }
+
+
+        public void UpdateConfigList()
+        {
+            if(lstConfigStorage!=null)
+                foreach (ConfigStorage config in lstConfigStorage)
+                {
+                    if (config.Section.ToLower().CompareTo("config") == 0)
+                    {
+                        if (config.Parameter.ToLower().CompareTo("arduinounoparamsver5") == 0)
+                            config.Value = textBoxArduinoUnoParamsVer5.Text;
+
+                        if (config.Parameter.ToLower().CompareTo("buseusbnotifycations") == 0)
+                            config.Value = chkUSBNotify.Checked.ToString();
+
+                        if (config.Parameter.ToLower().CompareTo("serialterminalspeed") == 0)
+                            config.Value = cmbSerialSpeedCfg.Text;
+
+                    }
+                }
+        }
+
         private void FormConfiguration_Load(object sender, EventArgs e)
         {
-            UpdateConfig();
+            UpdateConfigDisplay();
         }
 
         #region IWriteConfig Members
@@ -52,23 +93,11 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             throw new NotImplementedException();
         }
 
+
         public void UpdateConfig()
         {
-            foreach (ConfigStorage config in lstConfigStorage)
-            {
-                if (config.Section.ToLower().CompareTo("config") == 0)
-                {                    
-                    if (config.Parameter.ToLower().CompareTo("arduinounoparamsver5") == 0)
-                        textBoxArduinoUnoParamsVer5.Text = config.Value;
-
-                    if (config.Parameter.ToLower().CompareTo("buseusbnotifycations") == 0)
-                        chkUSBNotify.Checked = Convert.ToBoolean(config.Value);
-
-                    if (config.Parameter.ToLower().CompareTo("serialterminalspeed") == 0)
-                        cmbSerialSpeedCfg.Text = config.Value;
-                    
-                }
-            }
+            //Update display
+            UpdateConfigDisplay();
         }
 
         #endregion
@@ -94,7 +123,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 }
             }
 
-            this.textBoxArduinoUnoParamsVer5.Text = newArgs;
+            this.textBoxArduinoUnoParamsVer5.Text = newArgs;            
         }
 
         //Baudrate changed by using the coombobox 
@@ -123,6 +152,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                     }
                 }
             }
+            UpdateConfigList();
         }
 
         private void cmbSerialSpeedCfg_SelectedIndexChanged(object sender, EventArgs e)
@@ -134,6 +164,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                     parentIRS232DataInterface.BaudRate = Convert.ToInt32(this.cmbSerialSpeedCfg.Text);
             
             }
+            UpdateConfigList();
         }
 
         #region IRS232Data Members
@@ -163,28 +194,15 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
         #endregion
 
+         
+
         private void btConfigSave_Click(object sender, EventArgs e)
         {
             if (this.parentInterface is IWriteConfig)
             {
 
                 //Update parameter list before sending
-                foreach (ConfigStorage config in lstConfigStorage)
-                {
-                    if (config.Section.ToLower().CompareTo("config") == 0)
-                    {
-                        if (config.Parameter.ToLower().CompareTo("arduinounoparamsver5") == 0)
-                            config.Value = textBoxArduinoUnoParamsVer5.Text;
-
-                        if (config.Parameter.ToLower().CompareTo("buseusbnotifycations") == 0)
-                            config.Value = chkUSBNotify.Checked.ToString();
-
-                        if (config.Parameter.ToLower().CompareTo("serialterminalspeed") == 0)
-                            config.Value = cmbSerialSpeedCfg.Text;
-
-                    }
-                }
-
+                UpdateConfigList();
                 IWriteConfig wConfig = parentInterface as IWriteConfig;
                 wConfig.WriteConfig();
             }            
@@ -210,7 +228,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             }
 
             //Update display
-            UpdateConfig();
+            UpdateConfigDisplay();
         }
 
 
@@ -218,5 +236,15 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         {
             restoreDefaultConfigParams();
         }
+
+        private void chkUSBNotify_CheckedChanged(object sender, EventArgs e)
+        {
+            //Update parameter list
+            UpdateConfigList();
+        }
+
+
+
+
     }
 }
