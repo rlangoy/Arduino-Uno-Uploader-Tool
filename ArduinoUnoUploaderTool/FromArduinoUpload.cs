@@ -422,9 +422,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         {
             RS232DataEventArgs rs232Data = e as RS232DataEventArgs;
 
-            //Debug only            
-            //toolStripStatusLabel1.Text = "RS232: " + rs232Data.RS232String;
-
             //chk if port is open if not then check if
             //--If serial port is available 
             if (serialPort1.IsOpen)
@@ -451,11 +448,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             }
         }               
 
-
-
         private void Form_Load(object sender, EventArgs e)
         {
-
             //Display Version Information
             Version version = new Version(Application.ProductVersion);
             this.Text += " "+version.Major+"."+version.Minor+"."+ version.Build ;
