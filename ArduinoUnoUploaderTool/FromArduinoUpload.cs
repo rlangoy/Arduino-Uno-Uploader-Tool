@@ -172,6 +172,21 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             textBoxHexFile.Text = fileName;
             comboBoxSerailPorts.Text = comPort.ToString();
 
+            //Update my params
+            if (lstConfigStorage != null)
+                foreach (ConfigStorage config in lstConfigStorage)
+                {
+                    if (config.Section.ToLower().CompareTo("config") == 0)
+                    {
+                        if (config.Parameter.ToLower().CompareTo("comport") == 0)
+                            config.Value = comPort;
+
+                        if (config.Parameter.ToLower().CompareTo("filename") == 0)
+                            config.Value = fileName;
+                    }
+                }
+
+
             //Update params in other components
             foreach (object plugInForms in UploaderPluginForms)
             {
@@ -182,6 +197,17 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                     rs232Interface.BaudRate = this.baudRate;
                 }
             }
+
+            //Update params in other components
+            foreach (object plugInForms in UploaderPluginForms)
+            {
+                //Check for Forms that want to send RS232 to the ucontroller
+                if (plugInForms is IWriteConfig)
+                {
+                    IWriteConfig configInterface = plugInForms as IWriteConfig;
+                    configInterface.UpdateConfig();
+                }
+            }        
         }
 
         // Store configuration

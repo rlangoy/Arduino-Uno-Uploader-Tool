@@ -33,6 +33,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             InitializeComponent();
         }
 
+        private string comPort;
+        private string fileName;
 
         public void UpdateConfigDisplay()
         {
@@ -50,8 +52,15 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                         if (config.Parameter.ToLower().CompareTo("serialterminalspeed") == 0)
                             cmbSerialSpeedCfg.Text = config.Value;
 
+                        if (config.Parameter.ToLower().CompareTo("comport") == 0)
+                            comPort = config.Value;
+
+                        if (config.Parameter.ToLower().CompareTo("filename") == 0)
+                            fileName = config.Value;
                     }
                 }
+
+            textParams.Text = textBoxArduinoUnoParamsVer5.Text + " -P\\\\.\\" + comPort + " -D -Uflash:w:\"" + fileName + "\":i";
         }
 
 
@@ -153,6 +162,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 }
             }
             UpdateConfigList();
+
+            textParams.Text = textBoxArduinoUnoParamsVer5.Text + " -P\\\\.\\" + comPort + " -D -Uflash:w:\"" + fileName + "\":i";
         }
 
         private void cmbSerialSpeedCfg_SelectedIndexChanged(object sender, EventArgs e)
