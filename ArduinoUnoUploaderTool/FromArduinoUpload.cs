@@ -243,7 +243,19 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
             readString = inifile.Read("Config", "SerialTerminalSpeed");
             if (readString.Length > 0)
-                baudRate = Convert.ToInt32(readString);  
+                baudRate = Convert.ToInt32(readString);
+
+            //Update params in other components
+            foreach (object plugInForms in UploaderPluginForms)
+            {
+                //Check for Forms that want to send RS232 to the ucontroller
+                if (plugInForms is IWriteConfig)
+                {
+                    IWriteConfig configInterface = plugInForms as IWriteConfig;
+                    configInterface.UpdateConfig();
+                }
+            }        
+
         }
 
 
@@ -450,12 +462,12 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             
             //use default params if no config.ini is present
             restoreDefaultConfigParams();
-            
-            //Try to read config params from file
-            ReadConfigToFile();
 
             //init the form components
             initPlugableComponents();
+
+            //Try to read config params from file
+            ReadConfigToFile();
 
             textBoxHexFile.Text = fileName;
 

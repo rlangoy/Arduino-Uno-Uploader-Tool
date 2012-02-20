@@ -36,8 +36,12 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private string comPort;
         private string fileName;
 
+        //Used to that UpdateConfigDisplay starts UpdateConfigList
+        private bool bAutoUpdatingDisplay=false;        
+        
         public void UpdateConfigDisplay()
         {
+            bAutoUpdatingDisplay = true;
             if (lstConfigStorage != null)
                 foreach (ConfigStorage config in lstConfigStorage)
                 {
@@ -61,27 +65,28 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 }
 
             textParams.Text = textBoxArduinoUnoParamsVer5.Text + " -P\\\\.\\" + comPort + " -D -Uflash:w:\"" + fileName + "\":i";
+            bAutoUpdatingDisplay = false;
         }
-
 
         public void UpdateConfigList()
         {
-            if(lstConfigStorage!=null)
-                foreach (ConfigStorage config in lstConfigStorage)
-                {
-                    if (config.Section.ToLower().CompareTo("config") == 0)
+            if (bAutoUpdatingDisplay==false)
+                if(lstConfigStorage!=null)
+                    foreach (ConfigStorage config in lstConfigStorage)
                     {
-                        if (config.Parameter.ToLower().CompareTo("arduinounoparamsver5") == 0)
-                            config.Value = textBoxArduinoUnoParamsVer5.Text;
+                        if (config.Section.ToLower().CompareTo("config") == 0)
+                        {
+                            if (config.Parameter.ToLower().CompareTo("arduinounoparamsver5") == 0)
+                                config.Value = textBoxArduinoUnoParamsVer5.Text;
 
-                        if (config.Parameter.ToLower().CompareTo("buseusbnotifycations") == 0)
-                            config.Value = chkUSBNotify.Checked.ToString();
+                            if (config.Parameter.ToLower().CompareTo("buseusbnotifycations") == 0)
+                                config.Value = chkUSBNotify.Checked.ToString();
 
-                        if (config.Parameter.ToLower().CompareTo("serialterminalspeed") == 0)
-                            config.Value = cmbSerialSpeedCfg.Text;
+                            if (config.Parameter.ToLower().CompareTo("serialterminalspeed") == 0)
+                                config.Value = cmbSerialSpeedCfg.Text;
 
+                        }
                     }
-                }
         }
 
         private void FormConfiguration_Load(object sender, EventArgs e)
@@ -161,9 +166,10 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                     }
                 }
             }
-            UpdateConfigList();
 
             textParams.Text = textBoxArduinoUnoParamsVer5.Text + " -P\\\\.\\" + comPort + " -D -Uflash:w:\"" + fileName + "\":i";
+            
+            UpdateConfigList();
         }
 
         private void cmbSerialSpeedCfg_SelectedIndexChanged(object sender, EventArgs e)
@@ -252,6 +258,11 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         {
             //Update parameter list
             UpdateConfigList();
+        }
+
+        private void FormConfiguration_Paint(object sender, PaintEventArgs e)
+        {
+            UpdateConfigDisplay();
         }
 
 
