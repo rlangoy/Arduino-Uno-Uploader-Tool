@@ -172,16 +172,25 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             UpdateConfigList();
         }
 
+        private void cmbSerialSpeedCfg_MouseClick(object sender, MouseEventArgs e)
+        {
+            bAutoUpdatingDisplay = false;
+        }
+
         private void cmbSerialSpeedCfg_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(parentInterface is IRS232Data )
+            if (bAutoUpdatingDisplay == false)
             {
-                IRS232Data parentIRS232DataInterface= parentInterface as IRS232Data; 
-                if (parentIRS232DataInterface != null)
-                    parentIRS232DataInterface.BaudRate = Convert.ToInt32(this.cmbSerialSpeedCfg.Text);
-            
+                if (parentInterface is IRS232Data)
+                {
+                    IRS232Data parentIRS232DataInterface = parentInterface as IRS232Data;
+                    if (parentIRS232DataInterface != null)
+                        parentIRS232DataInterface.BaudRate = Convert.ToInt32(this.cmbSerialSpeedCfg.Text);
+
+                }
+                UpdateConfigList();
             }
-            UpdateConfigList();
+            bAutoUpdatingDisplay = false;
         }
 
         #region IRS232Data Members
@@ -205,7 +214,9 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             }
             set
             {
+                bAutoUpdatingDisplay = true;
                 cmbSerialSpeedCfg.Text = value.ToString();
+                UpdateConfigList();
             }
         }
 
@@ -259,14 +270,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             //Update parameter list
             UpdateConfigList();
         }
-
-        private void FormConfiguration_Paint(object sender, PaintEventArgs e)
-        {
-            UpdateConfigDisplay();
-        }
-
-
-
 
     }
 }

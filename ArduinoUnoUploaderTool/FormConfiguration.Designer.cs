@@ -338,6 +338,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.cmbSerialSpeedCfg.Size = new System.Drawing.Size(69, 21);
             this.cmbSerialSpeedCfg.TabIndex = 5;
             this.cmbSerialSpeedCfg.SelectedIndexChanged += new System.EventHandler(this.cmbSerialSpeedCfg_SelectedIndexChanged);
+            this.cmbSerialSpeedCfg.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cmbSerialSpeedCfg_MouseClick);
             // 
             // FormConfiguration
             // 
@@ -348,7 +349,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             this.Name = "FormConfiguration";
             this.Text = "FormConfiguration";
             this.Load += new System.EventHandler(this.FormConfiguration_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormConfiguration_Paint);
             this.panel3LinkXp3.ResumeLayout(false);
             this.panel3LinkXp3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
