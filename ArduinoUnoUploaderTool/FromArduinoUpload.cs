@@ -1,5 +1,5 @@
 ﻿/*
-* Copyright (c) 2011 Rune Langøy
+* Copyright (c) 2011-2012 Rune Langøy
 * All rights reserved.
 *
 * Permission to use, copy, modify, and distribute this software for any
@@ -34,7 +34,7 @@ using System.Threading;
 
 namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 {
-    public partial class FormArduinoUpload : Form, IUSBAddedOrRemoved
+    public partial class FormArduinoUpload : Form, IUSBAddedOrRemoved, Iparent   //IRS232Data, IWriteConfig
     {
         //class for handeling the notifycation
         // described in IUSBAddedOrRemoved
@@ -167,21 +167,52 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
         //Update the textParams.Text field
         private void updateParams()
-        {
-            string defParam = arduinoUnoParams + " -P\\\\.\\" + comPort + " -D -Uflash:w:\"" + fileName + "\":i";
-            textParams.Text = defParam;
+        {            
             textBoxHexFile.Text = fileName;
-            cmbSerialSpeedCfg.Text = baudRate.ToString();
-            chkUSBNotify.Checked = bUseUsbNotifycations;
-            cmbSerialTerm.Text = baudRate.ToString();
-            cmbSerialSpeedCfg.Text = baudRate.ToString();
-            comboBoxSerailPorts.Text = comPort.ToString();        
+            comboBoxSerailPorts.Text = comPort.ToString();
+
+            //Update my params
+            if (lstConfigStorage != null)
+                foreach (ConfigStorage config in lstConfigStorage)
+                {
+                    if (config.Section.ToLower().CompareTo("config") == 0)
+                    {
+                        if (config.Parameter.ToLower().CompareTo("comport") == 0)
+                            config.Value = comPort;
+
+                        if (config.Parameter.ToLower().CompareTo("filename") == 0)
+                            config.Value = fileName;
+                    }
+                }
+
+
+            //Update params in other components
+            foreach (object plugInForms in UploaderPluginForms)
+            {
+                //Check for Forms that want to send RS232 to the ucontroller
+                if (plugInForms is IRS232Data)
+                {
+                    IRS232Data rs232Interface = plugInForms as IRS232Data;
+                    rs232Interface.BaudRate = this.baudRate;
+                }
+            }
+
+            //Update params in other components
+            foreach (object plugInForms in UploaderPluginForms)
+            {
+                //Check for Forms that want to send RS232 to the ucontroller
+                if (plugInForms is IWriteConfig)
+                {
+                    IWriteConfig configInterface = plugInForms as IWriteConfig;
+                    configInterface.UpdateConfig();
+                }
+            }        
         }
 
         // Store configuration
         private void WriteConfigToFile()
         {
-            ReadWriteInitFile inifile = new ReadWriteInitFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\config.ini");
+            ReadWriteInitFile inifile = new ReadWriteInitFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\config.ini",this.lstConfigStorage);
             inifile.Write("Config", "bUseUsbNotifycations", bUseUsbNotifycations.ToString());
             inifile.Write("Config", "comPort", comPort);
             inifile.Write("Config", "fileName", fileName);
@@ -192,7 +223,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         // Read configuration
         private void ReadConfigToFile()
         {
-            ReadWriteInitFile inifile = new ReadWriteInitFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\config.ini");
+            ReadWriteInitFile inifile = new ReadWriteInitFile(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\config.ini",this.lstConfigStorage);
 
             string readString = inifile.Read("Config", "comPort");
             if (readString.Length > 0)
@@ -212,7 +243,18 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
             readString = inifile.Read("Config", "SerialTerminalSpeed");
             if (readString.Length > 0)
-                baudRate = Convert.ToInt32(readString);  
+                baudRate = Convert.ToInt32(readString);
+
+            //Update params in other components
+            foreach (object plugInForms in UploaderPluginForms)
+            {
+                //Check for Forms that want to send RS232 to the ucontroller
+                if (plugInForms is IWriteConfig)
+                {
+                    IWriteConfig configInterface = plugInForms as IWriteConfig;
+                    configInterface.UpdateConfig();
+                }
+            }        
 
         }
 
@@ -229,17 +271,9 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             }
                 
             if (ports.Contains(comPort) == true)
-            {
                 lbPortNotAvailable.Visible = false;
-                if (panel3LinkXp2.Visible == true)
-                {
-                    startSerialPort();
-                }
-            }
             else
-            {
                 lbPortNotAvailable.Visible = true;                
-            }
 
             return !lbPortNotAvailable.Visible;
         }
@@ -291,7 +325,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                         while (bClosingComPort) { System.Threading.Thread.Sleep(10); ;}
                     }
                 }
-                this.txtSerialTerminal.Text = "";
 
                 //Open New 
                 serialPort1 = new SerialPort(comPort, baudRate, Parity.None, 8, StopBits.One);
@@ -320,7 +353,8 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
                 bProsessingRS232Data = true;
 
-                this.txtSerialTerminal.AddString(serialPort1.ReadExisting());
+                //Send the RS232 incoming data the the plugins
+                sendRS232DataToThePlugins(serialPort1.ReadExisting());
 
                 bProsessingRS232Data = false;
             }
@@ -342,6 +376,78 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             }
         }
 
+        //List for forms/plugable components
+        List<Form> UploaderPluginForms = new List<Form>();
+
+        // Load the forms/plugable components        
+        private void loadPlugableComponents()
+        {
+            //Load the form components
+            UploaderPluginForms.Add(new FormIntro());
+            UploaderPluginForms.Add(new FormSerialTerminal());
+            UploaderPluginForms.Add(new FormConfiguration());
+        }
+
+        //init forms/plugable components
+        private void initPlugableComponents()
+        {
+
+            //Load the form components
+            loadPlugableComponents();
+            
+            //Scan for event interfaces
+            foreach (object plugInForms in UploaderPluginForms)
+            {
+                //Check for Forms that want to send RS232 to the ucontroller
+                if (plugInForms is IRS232Data)
+                {
+                    IRS232Data rs232Interface = plugInForms as IRS232Data;
+                    try { rs232Interface.OnDataRecieved += new EventHandler(pluginFormWanstTosendRS232Data); }
+                    catch (NotImplementedException) { ;}
+                    rs232Interface.iRS232Data = this;
+                    rs232Interface.BaudRate = this.baudRate;
+                }
+
+                if (plugInForms is IWriteConfig)
+                {
+                    IWriteConfig writeConfig = plugInForms as IWriteConfig;
+                    writeConfig.LstConfigStorage = this.lstConfigStorage;  //tansfer the configuration list
+                }
+            }
+
+        }
+
+        //trigered when a plgin wants to send RS232 data
+        void pluginFormWanstTosendRS232Data(object sender, EventArgs e)
+        {
+            RS232DataEventArgs rs232Data = e as RS232DataEventArgs;
+
+            //chk if port is open if not then check if
+            //--If serial port is available 
+            if (serialPort1.IsOpen)
+                serialPort1.Write(rs232Data.RS232String);
+        }
+
+        private void UpdatePluginParameters()
+        {
+            //Update private vars
+            foreach (ConfigStorage config in lstConfigStorage)
+            {
+                if (config.Section.ToLower().CompareTo("config") == 0)
+                {
+                    if (config.Parameter.ToLower().CompareTo("arduinounoparamsver5") == 0)
+                        arduinoUnoParams = config.Value;
+
+                    if (config.Parameter.ToLower().CompareTo("buseusbnotifycations") == 0)
+                        bUseUsbNotifycations = Convert.ToBoolean(config.Value);
+
+                    if (config.Parameter.ToLower().CompareTo("serialterminalspeed") == 0)
+                        baudRate = Convert.ToInt32(config.Value);
+
+                }
+            }
+        }               
+
         private void Form_Load(object sender, EventArgs e)
         {
             //Display Version Information
@@ -350,10 +456,13 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             
             //use default params if no config.ini is present
             restoreDefaultConfigParams();
-            
+
+            //init the form components
+            initPlugableComponents();
+
             //Try to read config params from file
             ReadConfigToFile();
-            
+
             textBoxHexFile.Text = fileName;
 
             updateParams();
@@ -366,7 +475,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             chkIfComPortIsAvailable();
 
             ShowLinkedPanelNo(1);
-            textBoxArduinoUnoParamsVer5.Text = this.arduinoUnoParams;
             toolStripStatusLabel1.Text = "Ready";
 
             comboBoxSerailPorts.Items.Clear();
@@ -375,14 +483,25 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
             if (!comboBoxSerailPorts.Items.Contains(comPort))
                 comboBoxSerailPorts.Items.Add(comPort);
 
-            comboBoxSerailPorts.Text = comPort;            
+            comboBoxSerailPorts.Text = comPort;
+
+
+            //Start the serial port so that the listening plugins
+            //could use it.
+            startSerialPort();
         }
 
         private void comboBoxSerailPorts_SelectedValueChanged(object sender, EventArgs e)
         {
             comPort = comboBoxSerailPorts.Text;
             updateParams();
-            chkIfComPortIsAvailable();             
+            chkIfComPortIsAvailable();
+            //Stop serial data if it is open and running
+            closeSerial();
+            //Start the serial port so that the listening plugins
+            //could use it.
+            startSerialPort();
+
         }
 
         private void textBoxHexFile_TextChanged(object sender, EventArgs e)
@@ -461,7 +580,6 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 {
                     this.closeSerial();
                     bSerialLineWasUsed = true;
-                    this.txtSerialTerminal.Text = "";
                 }
             }
 
@@ -484,7 +602,9 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 return;            
             }
 
-
+            //Get updates form the plugins
+            UpdatePluginParameters();
+            string defParam = arduinoUnoParams + " -P\\\\.\\" + comPort + " -D -Uflash:w:\"" + fileName + "\":i";
             Process p = null;
             try
             {
@@ -492,7 +612,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 p = new Process();
                 p.StartInfo.FileName = AVRDudeFileNameAndLocation;
 
-                p.StartInfo.Arguments = textParams.Text;
+                p.StartInfo.Arguments = defParam;
                 p.StartInfo.CreateNoWindow = false;
                 p.Start();
                 p.WaitForExit();
@@ -575,23 +695,21 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private void ShowLinkedPanelNo(int panelNo)
         {
             toolStripStatusLabel1.Text = "";
-            panel3LinkXp1.Visible = false;
-            panel3LinkXp2.Visible = false;
-            panel3LinkXp3.Visible = false;
-            panel3LinkXp4.Visible = false;
+
+            //Select the form to be displayed
+            Form newForm = UploaderPluginForms[panelNo-1];
             
-            if(panelNo ==1 )
-                panel3LinkXp1.Visible = true;
+            panelMainPlugin.Visible = true;
+            newForm.TopLevel = false;
+            //Remove the border
+            newForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            
+            panelMainPlugin.Controls.Clear();//Remove old form
 
-            if (panelNo == 2)
-                panel3LinkXp2.Visible = true;
-
-            if (panelNo == 3)
-                panel3LinkXp3.Visible = true;
-
-            if (panelNo == 4)
-                panel3LinkXp4.Visible = true;
-
+            panelMainPlugin.Controls.Add(newForm);
+            newForm.Show();
+            newForm.Dock = DockStyle.Fill;
+            newForm.BringToFront();            
         }
 
         private void xPanderPanel1_Click(object sender, EventArgs e)
@@ -607,196 +725,111 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
         private void xPanderPanel3_Click(object sender, EventArgs e)
         {
             ShowLinkedPanelNo(3);
-            textBoxArduinoUnoParamsVer5.Text = this.arduinoUnoParams;
         }
 
         private void panel3LinkXp3_CloseClick(object sender, EventArgs e)
-        {
-            textBoxArduinoUnoParamsVer5.Text=this.arduinoUnoParams;
-        }
-
-        private void textBoxArduinoUnoParamsVer5_TextChanged(object sender, EventArgs e)
-        {
-            this.arduinoUnoParams = textBoxArduinoUnoParamsVer5.Text;
-
-            string[] args = this.textBoxArduinoUnoParamsVer5.Text.Split('-');            
-
-            foreach (string param in args)
-            {
-                if (param.Length>0)
-                {
-                    if (param[0] == 'b')
-                    {
-                        cmbSerialUploadSpeed.Text = param.Substring(1).Trim();
-                        if (cmbSerialUploadSpeed.Text != param.Substring(1).Trim())
-                        {
-                            //ComboBox.ObjectCollection mySpeeds = cmbSerialUploadSpeed.Items;
-                            //cmbSerialUploadSpeed.Items.Clear();                            
-                            //cmbSerialUploadSpeed.Items = mySpeeds;
-
-                            cmbSerialUploadSpeed.Text="";
-
-                        }
-
-                    }
-                }
-            }
-            
-
-            updateParams(); //Show changes
-        }
+        {}
 
         private void panel3LinkXp3_VisibleChanged(object sender, EventArgs e)
-        {            
-            
-        }
-
-        private void btCinfigDefault_Click(object sender, EventArgs e)
-        {
-            restoreDefaultConfigParams();
-            textBoxArduinoUnoParamsVer5.Text = this.arduinoUnoParams;
-            updateParams(); //Show changes
-        }
+        {}
 
         private void xPanderPanel3_Enter(object sender, EventArgs e)
-        {
-        }
+        {}
 
-        private void btConfigSave_Click(object sender, EventArgs e)
-        {
-            WriteConfigToFile();
-        }
 
-        private void chkUSBNotify_CheckedChanged(object sender, EventArgs e)
-        {
-            this.bUseUsbNotifycations = chkUSBNotify.Checked;
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void xPanderPanel4_Click(object sender, EventArgs e)
         {            
             ShowLinkedPanelNo(4);
         }
 
-        private void txtSerialTerminal_KeyPress(object sender, KeyPressEventArgs e)
+
+        #region IRS232Data Members
+
+//        public event EventHandler OnDataRecieved;
+        event EventHandler dataRecievedEvent;
+
+        object objectLock = new Object();
+
+        // Explicit interface implementation required.
+        // Associate IRS232Data's event with
+        // dataRecievedEvent
+        event EventHandler IRS232Data.OnDataRecieved
         {
-            if (chkSreialEcho.Checked == false)
-                e.Handled = true;
-            try
+            add
             {
-                //chk if port is open if not then check if
-                //--If serial port is available 
-                if (serialPort1.IsOpen)
+                lock (objectLock)
                 {
-                    serialPort1.Write(e.KeyChar.ToString());
+                    dataRecievedEvent += value;
                 }
             }
-            catch (Exception ex) 
-            {  //ToDO show error in status bar ;
-                toolStripStatusLabel1.Text = ex.ToString().Trim('\n'); ;
-            };
-        }
-
-        private void btCelarSerialTerminalWindow_Click(object sender, EventArgs e)
-        {
-            txtSerialTerminal.Clear();
-        }
-
-        private void panel3LinkXp2_VisibleChanged(object sender, EventArgs e)
-        {
-            if (chkIfComPortIsAvailable() == false)
+            remove
             {
-                //MessageBox.Show("COM-port is not Available\nPlease select another COM-port", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                toolStripStatusLabel1.Text = "COM-port is not Available - Please select another COM-port";
-                return;
-            }
-
-
-            if (panel3LinkXp2.Visible == true)
-            {                
-                startSerialPort();
-                
-            }
-            else
-            {
-                closeSerial();
-                toolStripStatusLabel1.Text = "";
-                this.txtSerialTerminal.Text = ""; //clear recieved RS232 data
-            
-            }
-        }
-
-        private void chkWrapSerialData_CheckedChanged(object sender, EventArgs e)
-        {
-            this.txtSerialTerminal.WrapText = chkWrapSerialData.Checked;
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbSerialTerm_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.baudRate = Convert.ToInt32(cmbSerialTerm.Text);
-            this.updateParams();
-            if(serialPort1!=null)
-                if (serialPort1.IsOpen)
-                startSerialPort();
-        }
-
-        private void cmbSerialSpeedCfg_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.baudRate = Convert.ToInt32(cmbSerialSpeedCfg.Text);
-            this.updateParams();
-
-            if (serialPort1!=null)
-                if(serialPort1.IsOpen)
-                    startSerialPort();
-                
-        }
-
-        private void chkSreialEcho_CheckedChanged(object sender, EventArgs e)
-        {
-            txtSerialTerminal.Focus();
-        }
-
-
-        //Update the AvrDude argument string
-        private void UpdateAvrDudeParameterString()
-        {
-            //Return if not a valid baud rate (set manualy in textbox)
-            if (cmbSerialUploadSpeed.Text.Length==0)
-                return;
-
-            string[] args = this.textBoxArduinoUnoParamsVer5.Text.Split('-');
-            string newArgs = "";
-
-            foreach (string param in args)
-            {
-                if (param.Length > 0)
+                lock (objectLock)
                 {
-                    if (param[0]=='b')
-                        newArgs += "-b " + cmbSerialUploadSpeed.Text;
-                    else
-                        newArgs += "-" + param;
+                    dataRecievedEvent -= value;
                 }
             }
-
-            this.textBoxArduinoUnoParamsVer5.Text = newArgs;
         }
 
-        //Baudrate changed by using the coombobox 
-        private void cmbSerialUploadSpeed_SelectedIndexChanged(object sender, EventArgs e)
+        public void sendRS232DataToThePlugins(string data)
         {
-            //Make av new AVRDude parameter string 
-            UpdateAvrDudeParameterString();
+            // Raise IRS232Data's event 
+            EventHandler handler = dataRecievedEvent;
+            if (handler != null)
+            {
+                handler(this, new RS232DataEventArgs() { RS232String = data });
+            }
+        }
+
+        //Not to be used by the parent
+        //This is only used by the parent (FormArduinoUpload.cs)
+        public IRS232Data iRS232Data
+        {
+            set { throw new NotImplementedException(); }
+        }
+
+        //sets and gets the baud rate
+        public int BaudRate
+        {
+            get
+            {
+                return this.baudRate;
+            }
+            set
+            {               
+                this.baudRate = value;
+                this.updateParams();
+                if (serialPort1 != null)
+                    if (serialPort1.IsOpen)
+                        startSerialPort();
+            }
         }
 
 
+        #endregion
+
+
+        #region IWriteConfig Members
+        private List<ConfigStorage> lstConfigStorage = new List<ConfigStorage>();
+        public  List<ConfigStorage> LstConfigStorage
+        {
+            set { lstConfigStorage=value; }           
+        }
+
+        public void WriteConfig()
+        {
+            //Update Vars()
+            UpdatePluginParameters();
+            //Write the new parameters to disk
+            WriteConfigToFile();
+        }
+
+        public void UpdateConfig()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
     }
 }
