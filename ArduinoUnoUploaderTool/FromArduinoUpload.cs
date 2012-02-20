@@ -167,8 +167,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
         //Update the textParams.Text field
         private void updateParams()
-        {
-            string defParam = arduinoUnoParams + " -P\\\\.\\" + comPort + " -D -Uflash:w:\"" + fileName + "\":i";
+        {            
             textBoxHexFile.Text = fileName;
             comboBoxSerailPorts.Text = comPort.ToString();
 
@@ -599,7 +598,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
 
             //Get updates form the plugins
             UpdatePluginParameters();
-
+            string defParam = arduinoUnoParams + " -P\\\\.\\" + comPort + " -D -Uflash:w:\"" + fileName + "\":i";
             Process p = null;
             try
             {
@@ -607,7 +606,7 @@ namespace HIVE.TEKMAR.ITEK.ArduinoUnoToolGui
                 p = new Process();
                 p.StartInfo.FileName = AVRDudeFileNameAndLocation;
 
-                p.StartInfo.Arguments = arduinoUnoParams;
+                p.StartInfo.Arguments = defParam;
                 p.StartInfo.CreateNoWindow = false;
                 p.Start();
                 p.WaitForExit();
